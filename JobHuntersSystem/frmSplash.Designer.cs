@@ -65,20 +65,20 @@ namespace JobHuntersSystem
             // lblOrg
             // 
             this.lblOrg.AutoSize = true;
-            this.lblOrg.Font = new System.Drawing.Font("Microsoft Sans Serif", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOrg.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold);
             this.lblOrg.Location = new System.Drawing.Point(96, 117);
             this.lblOrg.Name = "lblOrg";
-            this.lblOrg.Size = new System.Drawing.Size(591, 64);
+            this.lblOrg.Size = new System.Drawing.Size(592, 66);
             this.lblOrg.TabIndex = 2;
             this.lblOrg.Text = "SdS Software Factory";
             // 
             // lblClan
             // 
             this.lblClan.AutoSize = true;
-            this.lblClan.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClan.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
             this.lblClan.Location = new System.Drawing.Point(297, 241);
             this.lblClan.Name = "lblClan";
-            this.lblClan.Size = new System.Drawing.Size(201, 37);
+            this.lblClan.Size = new System.Drawing.Size(196, 38);
             this.lblClan.TabIndex = 3;
             this.lblClan.Text = "Job Hunters";
             // 
