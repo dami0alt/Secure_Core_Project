@@ -1,5 +1,5 @@
 ﻿
-namespace SecureCore
+namespace JobHuntersSystem
 {
     partial class frmMain
     {
@@ -29,14 +29,13 @@ namespace SecureCore
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlOptions = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlUserData = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
             this.pnlOptions.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlUserData.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -52,7 +51,7 @@ namespace SecureCore
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
-            this.pnlOptions.Controls.Add(this.panel1);
+            this.pnlOptions.Controls.Add(this.pnlUserData);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
             this.pnlOptions.Location = new System.Drawing.Point(0, 36);
@@ -60,16 +59,16 @@ namespace SecureCore
             this.pnlOptions.Size = new System.Drawing.Size(316, 1088);
             this.pnlOptions.TabIndex = 1;
             // 
-            // panel1
+            // pnlUserData
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
-            this.panel1.Controls.Add(this.lblRole);
-            this.panel1.Controls.Add(this.lblUserName);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(316, 179);
-            this.panel1.TabIndex = 4;
+            this.pnlUserData.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
+            this.pnlUserData.Controls.Add(this.lblRole);
+            this.pnlUserData.Controls.Add(this.lblUserName);
+            this.pnlUserData.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlUserData.Location = new System.Drawing.Point(0, 0);
+            this.pnlUserData.Name = "pnlUserData";
+            this.pnlUserData.Size = new System.Drawing.Size(316, 179);
+            this.pnlUserData.TabIndex = 4;
             // 
             // lblRole
             // 
@@ -103,13 +102,12 @@ namespace SecureCore
             this.Font = new System.Drawing.Font("Century Gothic", 10.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "Home";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pnlOptions.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlUserData.ResumeLayout(false);
+            this.pnlUserData.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -118,9 +116,8 @@ namespace SecureCore
 
         private System.Windows.Forms.Panel pnlHeader;
         private System.Windows.Forms.Panel pnlOptions;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlUserData;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblUserName;
     }
 }
-
