@@ -31,6 +31,7 @@ namespace JobHuntersSystem
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
             this.pnlOptions = new System.Windows.Forms.Panel();
+            this.flpOptions = new System.Windows.Forms.FlowLayoutPanel();
             this.pnlUserData = new System.Windows.Forms.Panel();
             this.lblRole = new System.Windows.Forms.Label();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -51,6 +52,7 @@ namespace JobHuntersSystem
             // pnlOptions
             // 
             this.pnlOptions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
+            this.pnlOptions.Controls.Add(this.flpOptions);
             this.pnlOptions.Controls.Add(this.pnlUserData);
             this.pnlOptions.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnlOptions.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
@@ -58,6 +60,17 @@ namespace JobHuntersSystem
             this.pnlOptions.Name = "pnlOptions";
             this.pnlOptions.Size = new System.Drawing.Size(316, 1088);
             this.pnlOptions.TabIndex = 1;
+            // 
+            // flpOptions
+            // 
+            this.flpOptions.AutoScroll = true;
+            this.flpOptions.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flpOptions.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpOptions.Location = new System.Drawing.Point(0, 179);
+            this.flpOptions.Name = "flpOptions";
+            this.flpOptions.Size = new System.Drawing.Size(316, 909);
+            this.flpOptions.TabIndex = 5;
+            this.flpOptions.WrapContents = false;
             // 
             // pnlUserData
             // 
@@ -119,5 +132,6 @@ namespace JobHuntersSystem
         private System.Windows.Forms.Panel pnlUserData;
         private System.Windows.Forms.Label lblRole;
         private System.Windows.Forms.Label lblUserName;
+        private System.Windows.Forms.FlowLayoutPanel flpOptions;
     }
 }
