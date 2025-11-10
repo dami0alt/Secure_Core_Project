@@ -21,7 +21,7 @@ namespace ComponentesDeAcceso
 
         #endregion
 
-        BaseDeDades()
+        public BaseDeDades()
         {
             Connectar();
         }
