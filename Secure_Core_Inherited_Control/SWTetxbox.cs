@@ -10,115 +10,94 @@ using System.Text.RegularExpressions;
 namespace Secure_Core_Inherited_Control
 {
 
-    public enum TipusDada
+    public enum DataType
     {
-        Numero,
+        Number,
         Text,
-        Codi
+        Code
     }
 
     public class SWTextbox : TextBox
     {
 
-        private TipusDada _DadaPermesa = TipusDada.Text;
-        private string _NomCampBBDD = "";
-        private bool _PermetVuit = true;
-        private Color _ColorOriginal;
-        private Color _ColorError = Color.Red;
-        private bool _EsValid = true;
+        private DataType _AllowedData = DataType.Text;
+        private string _DatabaseName = "";
+        private bool _NullSpace = true;
+        private Color _OriginalColor;
+        private bool _IsValid = true;
 
-        public TipusDada DadaPermesa
+        public DataType AllowedData
         {
-            get { return _DadaPermesa; }
-            set { _DadaPermesa = value; }
+            get { return _AllowedData; }
+            set { _AllowedData = value; }
         }
 
-        public string NomCampBBDD
+        public string DatabaseName
         {
-            get { return _NomCampBBDD; }
-            set { _NomCampBBDD = value; }
+            get { return _DatabaseName; }
+            set { _DatabaseName = value; }
         }
 
-        public bool PermetVuit
+        public bool NullSpace
         {
-            get { return _PermetVuit; }
-            set { _PermetVuit = value; }
+            get { return _NullSpace; }
+            set { _NullSpace = value; }
         }
 
-        public bool EsValid
+        public bool IsValid
         {
-            get { return _EsValid; }
-            private set { _EsValid = value; }
+            get { return _IsValid; }
+            private set { _IsValid = value; }
         }
 
         public SWTextbox()
         {
-            InitializeComponent();
-        }
+            _OriginalColor = this.BackColor;
 
-        private void InitializeComponent()
-        {
-            this.SuspendLayout();
-
-            this.Enter += new System.EventHandler(this.SWTextbox_Enter);
-            this.Leave += new System.EventHandler(this.SWTextbox_Leave);
-            this.Validating += new System.ComponentModel.CancelEventHandler(this.SWTextbox_Validating);
-
-            this.ResumeLayout(false);
-
+            this.Enter += SWTextbox_Enter;
+            this.Leave += SWTextbox_Leave;
+            this.Validating += SWTextbox_Validating;
         }
 
         private void SWTextbox_Leave(object sender, EventArgs e)
         {
-            this.BackColor = Color.LightYellow;
+            this.BackColor = _OriginalColor;
         }
 
         private void SWTextbox_Enter(object sender, EventArgs e)
         {
-            if (_EsValid)
+            if (_IsValid)
             {
-                this.BackColor = _ColorOriginal;
+                this.BackColor = Color.LightYellow;
             }
         }
 
         private void SWTextbox_Validating(object sender, System.ComponentModel.CancelEventArgs e)
         {
             string text = this.Text.Trim();
-            bool Validacio = true;
+            bool validation = true;
 
-            if (!PermetVuit && text == string.Empty)
+            if (!NullSpace && string.IsNullOrEmpty(text))
+                validation = false;
+
+            if (validation && AllowedData == DataType.Number)
             {
-                Validacio = false;
+                if (!Regex.IsMatch(text, @"^\d+$") && text.Length > 0)
+                    validation = false;
             }
 
-            if (Validacio && DadaPermesa == TipusDada.Numero)
+            if (validation && AllowedData == DataType.Code)
             {
-                bool coincideix = Regex.IsMatch(text, @"^\d+$");
-                if (!coincideix && text.Length > 0)
-                {
-                    Validacio = false;
-                }
+                string pattern = @"^[AEIOU][A-Z]{3}-\d{2}[13579]$";
+                if (!Regex.IsMatch(text, pattern) && text.Length > 0)
+                    validation = false;
             }
 
-            if (Validacio && DadaPermesa == TipusDada.Codi)
-            {
-                string patro = @"^[AEIOU][A-Z]{3}-\d{2}[13579]$";
-                bool coincideix = Regex.IsMatch(text, patro);
-                if (!coincideix && text.Length > 0)
-                {
-                    Validacio = false;
-                }
-            }
+            _IsValid = validation;
 
-            _EsValid = Validacio;
-            if (!Validacio)
+            if (!_IsValid)
             {
-                this.BackColor = _ColorError;
                 e.Cancel = true;
-            }
-            else
-            {
-                this.BackColor = _ColorOriginal;
             }
         }
     }

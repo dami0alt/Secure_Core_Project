@@ -60,31 +60,31 @@ namespace WindowsFormsApp1
             // 
             // swTextbox1
             // 
-            this.swTextbox1.DadaPermesa = Secure_Core_Inherited_Control.TipusDada.Text;
+            this.swTextbox1.AllowedData = Secure_Core_Inherited_Control.DataType.Text;
             this.swTextbox1.Location = new System.Drawing.Point(162, 51);
             this.swTextbox1.Name = "swTextbox1";
-            this.swTextbox1.NomCampBBDD = "";
-            this.swTextbox1.PermetVuit = true;
+            this.swTextbox1.DatabaseName = "";
+            this.swTextbox1.NullSpace = true;
             this.swTextbox1.Size = new System.Drawing.Size(100, 22);
             this.swTextbox1.TabIndex = 3;
             // 
             // swTextbox2
             // 
-            this.swTextbox2.DadaPermesa = Secure_Core_Inherited_Control.TipusDada.Text;
+            this.swTextbox2.AllowedData = Secure_Core_Inherited_Control.DataType.Text;
             this.swTextbox2.Location = new System.Drawing.Point(162, 119);
             this.swTextbox2.Name = "swTextbox2";
-            this.swTextbox2.NomCampBBDD = "";
-            this.swTextbox2.PermetVuit = true;
+            this.swTextbox2.DatabaseName = "";
+            this.swTextbox2.NullSpace = true;
             this.swTextbox2.Size = new System.Drawing.Size(100, 22);
             this.swTextbox2.TabIndex = 4;
             // 
             // swTextbox3
             // 
-            this.swTextbox3.DadaPermesa = Secure_Core_Inherited_Control.TipusDada.Text;
+            this.swTextbox3.AllowedData = Secure_Core_Inherited_Control.DataType.Text;
             this.swTextbox3.Location = new System.Drawing.Point(162, 193);
             this.swTextbox3.Name = "swTextbox3";
-            this.swTextbox3.NomCampBBDD = "";
-            this.swTextbox3.PermetVuit = true;
+            this.swTextbox3.DatabaseName = "";
+            this.swTextbox3.NullSpace = true;
             this.swTextbox3.Size = new System.Drawing.Size(100, 22);
             this.swTextbox3.TabIndex = 5;
             // 
