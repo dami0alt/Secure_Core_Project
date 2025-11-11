@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Text.RegularExpressions;
 
-namespace Secure_Core_Inherited_Control
+namespace SecureCoreInheritedControl
 {
 
     public enum DataType

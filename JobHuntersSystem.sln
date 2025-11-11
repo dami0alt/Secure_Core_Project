@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.36602.28
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobHuntersSystem", "JobHuntersSystem\JobHuntersSystem.csproj", "{AAB73736-725E-4825-A224-130A2B2F8EDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Secure_Core_Inherited_Control", "Secure_Core_Inherited_Control\Secure_Core_Inherited_Control.csproj", "{03D30974-503E-4351-8F6B-6678ABC18454}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecureCoreInheritedControl", "Secure_Core_Inherited_Control\SecureCoreInheritedControl.csproj", "{03D30974-503E-4351-8F6B-6678ABC18454}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
