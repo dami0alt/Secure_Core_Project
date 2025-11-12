@@ -24,7 +24,7 @@ namespace ManagementForms
             dbManager = new BaseDeDades();
         }
 
-        DataSet dts;
+        protected DataSet dts;
   
         private void BindControls()
         {
@@ -73,7 +73,7 @@ namespace ManagementForms
             BindControls();
             dgtData.DataSource = dts.Tables[0];
         }
-        private void NewRegister()
+        protected virtual void NewRegister()
         {
             DataRow row;
             row = dts.Tables[0].NewRow();
@@ -89,8 +89,27 @@ namespace ManagementForms
                     row[ctrl.Tag.ToString()] = ((ComboBox)ctrl).SelectedValue;
                 }
             }
-            dts.Tables[0].Rows.Add(row);
-                
+            dts.Tables[0].Rows.Add(row);     
+        }
+        protected virtual void ConfigurateDataGridView()
+        {
+            foreach (DataGridViewColumn col in dgtData.Columns)
+            {
+                if (col.Name.ToLower().Substring(0, 2) == "id")
+                {
+                    col.Visible = false;
+                }
+            }
+            //Setup 
+            dgtData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
+            dgtData.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10, FontStyle.Bold);
+            dgtData.DefaultCellStyle.Font = new Font("Century Gothic", 9);
+            dgtData.DefaultCellStyle.BackColor = Color.White;
+            dgtData.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+
+            //dgtData.RowHeadersVisible = false;
+
         }
         private void frmBase_Load(object sender, EventArgs e)
         {
@@ -99,6 +118,7 @@ namespace ManagementForms
 
             BindControls();
             dgtData.DataSource = dts.Tables[0];
+            ConfigurateDataGridView();
         }
         private void SWTextbox_Validated(object sender, EventArgs e)
         {
