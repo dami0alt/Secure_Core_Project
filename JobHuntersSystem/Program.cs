@@ -14,7 +14,7 @@ namespace JobHuntersSystem
         [STAThread]
         static void Main()
         {
-            /*
+            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             using (frmLogin frmLogin = new frmLogin())
@@ -28,8 +28,8 @@ namespace JobHuntersSystem
                 {
                     Application.Exit();
                 }
-            }*/
-            Application.Run(new frmLogin());
+            }
+            //Application.Run(new frmLogin());
         }
     }
 }

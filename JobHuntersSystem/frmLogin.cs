@@ -45,11 +45,10 @@ namespace JobHuntersSystem
                 string dbPassword = db.Rows[0]["Password"].ToString();
                 bool passValidateInitial = CheckPasswordInitial(pass, passInitial, dbPassword);
 
-                CheckFinalPassword(passValidateInitial, db, pass, dbPassword);
+                CheckFinalPassword(passValidateInitial, db, pass, dbPassword, user);
             }
             
-        }
-        
+        }      
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -68,12 +67,13 @@ namespace JobHuntersSystem
             }
         }
 
-        private void CheckFinalPassword(bool passValidateInitial, DataTable db, string pass, string dbPassword)
+        private void CheckFinalPassword(bool passValidateInitial, DataTable db, string pass, string dbPassword, string user)
         {
             string validatePass, salt;
             if (passValidateInitial)
             {
-                //abrir form y pasar el user
+                frmConfirmPassword changePass = new frmConfirmPassword(user);
+                changePass.Show();
             }
             else
             {
@@ -83,16 +83,29 @@ namespace JobHuntersSystem
                 bool passHashed = hash.ValidatePass(validatePass, dbPassword);
                 if (passHashed)
                 {
-                    //abrir main
+                    string userName = db.Rows[0]["UserName"].ToString();
+                    lblMessage.Text = $"Welcome {userName}! Your user validation was successful. \nWe are currently verifying your access level and preparing your profile data. \nYou will be redirected to the main application shortly.";
+                    timerMessage.Start();
+
+                    //pasar datos al main
+
+
+                    this.DialogResult = DialogResult.OK;
 
 
                 }
                 else
                 {
-                    lblMessage.Text = ("Wrong Password, pleas check the credentials.");
-                    lblMessage.ForeColor = Color.Red;
+                    txtPass.Clear();
+                    lblMessage.Text = ("Unauthorized access attempt detected. Your activity has been logged. Further intrusion attempts will result in immediate system security action.");
+                    lblMessage.ForeColor = Color.Red;                   
                 }
             }
+        }
+
+        private void timerMessage_Tick(object sender, EventArgs e)
+        {
+            timerMessage.Stop();
         }
     }
 }
