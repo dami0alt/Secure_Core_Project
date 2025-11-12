@@ -98,6 +98,14 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ComponentesDeAcceso\ComponentesDeAcceso.csproj">
+      <Project>{6d09f3be-9853-4b5b-9234-6d9120321a2f}</Project>
+      <Name>ComponentesDeAcceso</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HashUtils\HashUtils.csproj">
+      <Project>{967322c0-3201-4556-9a3f-717e54d72ffd}</Project>
+      <Name>HashUtils</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SWLauchForm\SWUserControls.csproj">
       <Project>{3d4aad84-4203-4acd-9c84-4021bae48781}</Project>
       <Name>SWUserControls</Name>

@@ -35,13 +35,13 @@ namespace JobHuntersSystem
             this.lblPass = new System.Windows.Forms.Label();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.lblMessage = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // txtUser
             // 
             this.txtUser.Location = new System.Drawing.Point(246, 253);
             this.txtUser.Name = "txtUser";
-            this.txtUser.PasswordChar = '*';
             this.txtUser.Size = new System.Drawing.Size(238, 26);
             this.txtUser.TabIndex = 0;
             // 
@@ -49,6 +49,7 @@ namespace JobHuntersSystem
             // 
             this.txtPass.Location = new System.Drawing.Point(246, 356);
             this.txtPass.Name = "txtPass";
+            this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(238, 26);
             this.txtPass.TabIndex = 1;
             // 
@@ -92,12 +93,23 @@ namespace JobHuntersSystem
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
+            // lblMessage
+            // 
+            this.lblMessage.AutoSize = true;
+            this.lblMessage.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.Location = new System.Drawing.Point(79, 586);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(0, 30);
+            this.lblMessage.TabIndex = 6;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
             this.ClientSize = new System.Drawing.Size(606, 764);
+            this.Controls.Add(this.lblMessage);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.lblPass);
@@ -121,5 +133,6 @@ namespace JobHuntersSystem
         private System.Windows.Forms.Label lblPass;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label lblMessage;
     }
 }
