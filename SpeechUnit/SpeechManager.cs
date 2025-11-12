@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Speech.Recognition;
 using System.Speech.Synthesis;
 using System.Windows.Forms;
+using System.Globalization;
 
 namespace SpeechUnit
 {
@@ -13,15 +14,14 @@ namespace SpeechUnit
     {
 
         private  SpeechRecognitionEngine recognizer;
-        private  SpeechSynthesizer synthesizer;
         private  Dictionary<string, Action> commands;
         private  Form parentForm;
-        private  string currentUser;
+        /*private  string currentUser;*/
 
-        public SpeechManager(Form form, string user)
+        public SpeechManager(Form form)
         {
             parentForm = form;
-            currentUser = user;
+           /* currentUser = user;*/
 
             recognizer = new SpeechRecognitionEngine(new CultureInfo("en-US"));
 
@@ -34,9 +34,10 @@ namespace SpeechUnit
             commands = new Dictionary<string, Action>(StringComparer.OrdinalIgnoreCase)
             {
                 { "close", CloseApp },
-                { "exit", CloseApp },
                 { "time", ShowTime },
+                /*
                 { "user info", ShowUserInfo }
+                */
             };
         }
 
@@ -91,7 +92,7 @@ namespace SpeechUnit
             }));
         }
 
-        private void ShowUserInfo()
+        /*private void ShowUserInfo()
         {
             parentForm.Invoke(new Action(() =>
             {
@@ -99,6 +100,7 @@ namespace SpeechUnit
                     "User Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }));
         }
+        */
 
         public void Stop()
         {

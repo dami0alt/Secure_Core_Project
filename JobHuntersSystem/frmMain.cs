@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data;
+using SpeechUnit;
+
 
 namespace JobHuntersSystem
 {
@@ -18,7 +20,8 @@ namespace JobHuntersSystem
         private string _UserName = "Damian2005";
         private string _RoleUser = "Admin";
         private string _ProfileImagePath="Multimedia/png/Clon.png";
-        
+        private SpeechManager speech;
+
         public frmMain()
         {
             InitializeComponent();
@@ -37,7 +40,10 @@ namespace JobHuntersSystem
                 }
             }
             */
+            speech = new SpeechManager(this);
+
         }
+
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
