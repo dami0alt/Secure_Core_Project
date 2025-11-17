@@ -84,8 +84,10 @@ namespace JobHuntersSystem
             string validatePass, salt;
             if (passValidateInitial)
             {
+                MessageBox.Show("You will now be redirected to create your new password");
                 frmConfirmPassword changePass = new frmConfirmPassword(user);
                 changePass.Show();
+                txtPass.Clear();
             }
             else
             {
@@ -161,7 +163,7 @@ namespace JobHuntersSystem
                 DescCategory = categoryDesc
             };
 
-            IdentityUser.CurrentUser.MainUser = mainUser;
+            CurrentUser.MainUser = mainUser;
         }        
     }
 }

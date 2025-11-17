@@ -29,7 +29,6 @@ namespace JobHuntersSystem
                     Application.Exit();
                 }
             }
-            //Application.Run(new frmMain());
         }
     }
 }
