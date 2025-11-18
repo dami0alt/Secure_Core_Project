@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmUserRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRanks.Designer.cs">
+      <DependentUpon>frmUserRanks.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRanks.resx">
+      <DependentUpon>frmUserRanks.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
