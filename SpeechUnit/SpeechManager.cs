@@ -17,13 +17,18 @@ namespace SpeechUnit
         private  SpeechRecognitionEngine recognizer;
         private  Dictionary<string, Action> commands;
         private  Form parentForm;
-        private Image userProfileImage;
-        /*private  string currentUser;*/
 
-        public SpeechManager(Form form, Image profilePic )
+        private string userName;
+        private string userCategory;
+        private int accessLevel;
+        private Image userProfileImage;
+
+        public SpeechManager(Form form, string username, string category, int level, Image profilePic)
         {
             parentForm = form;
-            /* currentUser = user;*/
+            userName = username;
+            userCategory = category;
+            accessLevel = level;
             userProfileImage = profilePic;
 
             recognizer = new SpeechRecognitionEngine(new CultureInfo("en-US"));
@@ -38,9 +43,7 @@ namespace SpeechUnit
             {
                 { "close", CloseApp },
                 { "time", ShowTime },
-                /*
-                { "user info", ShowUserInfo }
-                */
+                /*{ "user info", ShowUserInfo }*/
             };
         }
 
@@ -57,7 +60,6 @@ namespace SpeechUnit
 
             recognizer.SetInputToDefaultAudioDevice();
             recognizer.SpeechRecognized += Recognizer_SpeechRecognized;
-            recognizer.SpeechRecognitionRejected += Recognizer_SpeechRecognitionRejected;
 
             recognizer.RecognizeAsync(RecognizeMode.Multiple);
         }
@@ -70,10 +72,6 @@ namespace SpeechUnit
             {
                 commands[command].Invoke();
             }
-        }
-
-        private void Recognizer_SpeechRecognitionRejected(object sender, SpeechRecognitionRejectedEventArgs e)
-        {
         }
 
         private void CloseApp()
@@ -98,14 +96,10 @@ namespace SpeechUnit
         /*private void ShowUserInfo()
         {
             parentForm.Invoke(new Action(() =>
-    {
-        string username = "User";       // tú lo cambiarás luego
-        string category = "Category";   // idem
-        string rank = "Rank";           // idem
-
-        UserCardForm card = new UserCardForm(username, category, rank, userProfileImage);
-        card.ShowDialog(parentForm);
-    }));
+            {
+                FrmUserInfo form = new FrmUserInfo(userName, userCategory, accessLevel.ToString(), userProfileImage);
+                form.ShowDialog(parentForm);
+            }));
         }
         */
 

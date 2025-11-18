@@ -21,7 +21,7 @@ namespace JobHuntersSystem
         private string _UserName = "Damian2005";
         private string _RoleUser = "Admin";
         private string _ProfileImagePath="Multimedia/png/Clon.png";
-        private SpeechManager speech;
+        /*private SpeechManager speech;*/
 
         public frmMain()
         {
@@ -41,7 +41,7 @@ namespace JobHuntersSystem
                 }
             }
             */
-            speech = new SpeechManager(this, pctProfileImage.Image);
+           
 
         }
 
@@ -54,7 +54,10 @@ namespace JobHuntersSystem
         {
             lblUserName.Text = _UserName;
             lblRoleUser.Text = _RoleUser;
+
             pctProfileImage.ImageLocation = AppDomain.CurrentDomain.BaseDirectory + _ProfileImagePath;
+
+            /*speech = new SpeechManager(this, _UserName, _RoleUser, _AccessLevelUser, pctProfileImage.Image);*/
         }
 
         private void pnlPanelTool_Click(object sender, EventArgs e)
