@@ -24,10 +24,10 @@ namespace ComponentesDeAcceso
         public BaseDeDades()
         {
             Connectar();
-            XifrarConexio();
+            EncryptConnection();
         }
 
-        private void XifrarConexio()
+        private void EncryptConnection()
         {
             Configuration configuration = ConfigurationManager.OpenExeConfiguration("JobHuntersSystem.exe");
             ConnectionStringsSection section = configuration.GetSection("connectionStrings")
