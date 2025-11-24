@@ -48,21 +48,37 @@ namespace JobHuntersSystem
         {
             string user = txtUser.Text;
             string pass = txtPass.Text;
-            string passInitial = "12345aA";            
+            string passInitial = "12345aA";
 
-            DataTable db = consultationDataBase(user);
-            if(db.Rows.Count == 0)
+            try
             {
-                lblMessage.Text = ("Invalid or nonexistent user credentials");
-                lblMessage.ForeColor = Color.Red;
+                DataTable db = consultationDataBase(user);
+
+                if (db.Rows.Count == 0 || db == null)
+                {
+                    lblMessage.Text = ("Invalid or nonexistent user credentials");
+                    lblMessage.ForeColor = Color.Red;
+                }
+                else
+                {
+                    string dbPassword = db.Rows[0]["Password"].ToString();
+                    bool passValidateInitial = CheckPasswordInitial(pass, passInitial, dbPassword);
+
+                    CheckFinalPassword(passValidateInitial, db, pass, dbPassword, user);
+                }
             }
-            else
+            catch(System.Data.Common.DbException ex)
             {
-                string dbPassword = db.Rows[0]["Password"].ToString();
-                bool passValidateInitial = CheckPasswordInitial(pass, passInitial, dbPassword);
+                lblMessage.Text = "ERROR: Could not connect to the database. Please check the connection.\n"+
+                                    $"Details: {ex.Message}";
+            }
+            catch(Exception ex)
+            {
+                lblMessage.Text = "ERROR: An unexpected error occurred in the system.\n"+
+                                    $"Details: {ex.Message}";
+            }
 
-                CheckFinalPassword(passValidateInitial, db, pass, dbPassword, user);
-            }            
+
         }      
         private void btnExit_Click(object sender, EventArgs e)
         {
