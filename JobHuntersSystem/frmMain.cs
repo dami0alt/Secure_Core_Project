@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using SpeechUnit;
+using IdentityUser;
 
 using ManagementForms;
 
@@ -16,11 +16,11 @@ namespace JobHuntersSystem
     public partial class frmMain : Form
     {
         //A futuro remplazar las propiedaedes del "user"por un data set con la query del usuario
-        private int _AccessLevelUser;
+        /*private int _AccessLevelUser;
         private string _UserName = "Damian2005";
         private string _RoleUser = "Admin";
-        private string _ProfileImagePath="Multimedia/png/Clon.png";
-        /*private SpeechManager speech;*/
+        private string _ProfileImagePath="Multimedia/png/Clon.png";*/
+        private SpeechManager speech;
 
         public frmMain()
         {
@@ -51,12 +51,19 @@ namespace JobHuntersSystem
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            lblUserName.Text = _UserName;
-            lblRoleUser.Text = _RoleUser;
+            var user = CurrentUser.MainUser;
 
-            pctProfileImage.ImageLocation = AppDomain.CurrentDomain.BaseDirectory + _ProfileImagePath;
+            if (user != null)
+            {
+                lblUserName.Text = user.UserName;
+                lblRoleUser.Text = user.DescRank;
 
-            /*speech = new SpeechManager(this, _UserName, _RoleUser, _AccessLevelUser, pctProfileImage.Image);*/
+                string fullPath = AppDomain.CurrentDomain.BaseDirectory + user.Photo;
+                if (System.IO.File.Exists(fullPath))
+                    pctProfileImage.Image = Image.FromFile(fullPath);
+            }
+
+            speech = new SpeechManager(this);
         }
 
         private void pnlPanelTool_Click(object sender, EventArgs e)
