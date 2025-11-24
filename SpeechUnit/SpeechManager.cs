@@ -1,36 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Speech.Recognition;
-using System.Speech.Synthesis;
 using System.Windows.Forms;
 using System.Globalization;
-using System.Drawing;
+using IdentityUser;
 
 namespace SpeechUnit
 {
     public class SpeechManager
     {
+        private SpeechRecognitionEngine recognizer;
+        private Dictionary<string, Action> commands;
+        private Form parentForm;
 
-        private  SpeechRecognitionEngine recognizer;
-        private  Dictionary<string, Action> commands;
-        private  Form parentForm;
+        public event Action<User> OnUserInfoRequested;
 
-        private string userName;
-        private string userCategory;
-        private int accessLevel;
-        private Image userProfileImage;
-
-        public SpeechManager(Form form, string username, string category, int level, Image profilePic)
+        public SpeechManager(Form form)
         {
             parentForm = form;
-            userName = username;
-            userCategory = category;
-            accessLevel = level;
-            userProfileImage = profilePic;
-
             recognizer = new SpeechRecognitionEngine(new CultureInfo("en-US"));
 
             InitializeCommands();
@@ -43,7 +31,7 @@ namespace SpeechUnit
             {
                 { "close", CloseApp },
                 { "time", ShowTime },
-                /*{ "user info", ShowUserInfo }*/
+                { "user info", ShowUserInfo }
             };
         }
 
@@ -55,7 +43,6 @@ namespace SpeechUnit
             gb.Append(words);
 
             Grammar grammar = new Grammar(gb);
-            grammar.Name = "SecureCoreVoiceCommands";
             recognizer.LoadGrammarAsync(grammar);
 
             recognizer.SetInputToDefaultAudioDevice();
@@ -69,9 +56,7 @@ namespace SpeechUnit
             string command = e.Result.Text.ToLower();
 
             if (commands.ContainsKey(command))
-            {
                 commands[command].Invoke();
-            }
         }
 
         private void CloseApp()
@@ -88,20 +73,19 @@ namespace SpeechUnit
             string hour = DateTime.Now.ToString("hh:mm tt");
             parentForm.Invoke(new Action(() =>
             {
-                MessageBox.Show($"Current time: {hour}", "System Time",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Current time: {hour}", "System Time");
             }));
         }
 
-        /*private void ShowUserInfo()
+        private void ShowUserInfo()
         {
-            parentForm.Invoke(new Action(() =>
+            User user = CurrentUser.MainUser;
+
+            if (user != null && OnUserInfoRequested != null)
             {
-                FrmUserInfo form = new FrmUserInfo(userName, userCategory, accessLevel.ToString(), userProfileImage);
-                form.ShowDialog(parentForm);
-            }));
+                OnUserInfoRequested(user);
+            }
         }
-        */
 
         public void Stop()
         {

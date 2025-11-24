@@ -47,5 +47,11 @@
     <Compile Include="SpeechManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityUser\IdentityUser.csproj">
+      <Project>{5feac1c2-3d16-403e-8122-ef276d07026e}</Project>
+      <Name>IdentityUser</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
