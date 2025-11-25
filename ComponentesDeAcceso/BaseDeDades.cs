@@ -30,14 +30,16 @@ namespace ComponentesDeAcceso
 
         private void EncryptConnection()
         {
-            Configuration configuration = ConfigurationManager.OpenExeConfiguration("JobHuntersSystem.exe");
-            ConnectionStringsSection section = configuration.GetSection("connectionStrings")
-            as ConnectionStringsSection;
-            if (!section.SectionInformation.IsProtected)
-            {
-                section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
-            }
-            configuration.Save();
+                Configuration configuration = ConfigurationManager.OpenExeConfiguration("JobHuntersSystem.exe");
+                ConnectionStringsSection section = configuration.GetSection("connectionStrings") as ConnectionStringsSection;
+
+                if (!section.SectionInformation.IsProtected)
+                {
+                    section.SectionInformation.ProtectSection("DataProtectionConfigurationProvider");
+                }
+
+                configuration.Save();
+
         }
 
         private void Connectar()
