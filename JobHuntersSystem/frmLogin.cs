@@ -18,11 +18,15 @@ namespace JobHuntersSystem
         BaseDeDades dataBase = new BaseDeDades();
         clsHash hash = new clsHash();
         private int errorCount = 0;
+        private string path;
         public frmLogin()
         {
             frmSplash frmSplash = new frmSplash();
             frmSplash.ShowDialog();
             InitializeComponent();
+
+            path = AppDomain.CurrentDomain.BaseDirectory + "Multimedia\\png\\closeEye.png";
+            pbPass.ImageLocation = path;
         }
         #region consultas
         private DataTable consultationDataBase(string user)
@@ -211,6 +215,20 @@ namespace JobHuntersSystem
             };
 
             CurrentUser.MainUser = mainUser;
-        }        
+        }
+
+        private void pbPass_MouseDown(object sender, MouseEventArgs e)
+        {
+            path = AppDomain.CurrentDomain.BaseDirectory + "Multimedia\\png\\openEye.png";
+            pbPass.ImageLocation = path;
+            txtPass.PasswordChar = '\0';
+        }
+
+        private void pbPass_MouseUp(object sender, MouseEventArgs e)
+        {
+            path = AppDomain.CurrentDomain.BaseDirectory + "Multimedia\\png\\closeEye.png";
+            pbPass.ImageLocation = path;
+            txtPass.PasswordChar = '*';
+        }
     }
 }
