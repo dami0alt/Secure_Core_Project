@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmUserRanks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRanks.Designer.cs">
+      <DependentUpon>frmUserRanks.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,14 +61,26 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmUsersCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsersCategories.Designer.cs">
+      <DependentUpon>frmUsersCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRanks.resx">
+      <DependentUpon>frmUserRanks.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsers.resx">
       <DependentUpon>frmUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsersCategories.resx">
+      <DependentUpon>frmUsersCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
@@ -71,7 +89,7 @@
       <Name>ComponentesDeAcceso</Name>
     </ProjectReference>
     <ProjectReference Include="..\Secure_Core_Inherited_Control\SWInheritedControl.csproj">
-      <Project>{03D30974-503E-4351-8F6B-6678ABC18454}</Project>
+      <Project>{03d30974-503e-4351-8f6b-6678abc18454}</Project>
       <Name>SWInheritedControl</Name>
     </ProjectReference>
   </ItemGroup>

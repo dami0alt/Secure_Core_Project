@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,10 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using IdentityUser;
-
 using ManagementForms;
-
+using ComponentesDeAcceso;
+using IdentityUser;
 namespace JobHuntersSystem
 {
     public partial class frmMain : Form
@@ -22,20 +22,38 @@ namespace JobHuntersSystem
         private string _ProfileImagePath="Multimedia/png/Clon.png";*/
         private SpeechManager speech;
 
+        private int _AccessLevelUser = CurrentUser.MainUser.AccesLevel;
+        private string _UserName = CurrentUser.MainUser.UserName;
+        private string _RoleUser = CurrentUser.MainUser.DescRank;
+        private string _ProfileImagePath = AppDomain.CurrentDomain.BaseDirectory + CurrentUser.MainUser.Photo;
+
+        BaseDeDades dbManager;
         public frmMain()
         {
             InitializeComponent();
-            /*
-             * A futuro, aplicar esta lógico para cargar los botones según nivel de acceso, comparando con la tabla "UserOptions" - DB
-            foreach(DataTable row in UserOptions)
+            dbManager = new BaseDeDades();
+        }
+        DataTable dtUserOptions;
+
+        private void LoadUserOptions()
+        {
+            string query = "SELECT * FROM UserOptions";
+            dtUserOptions = dbManager.PortarDataTable(query);
+
+            foreach (DataRow row in dtUserOptions.Rows)
             {
-                int AccessLevel = poner "Row["AccesLevel"]"
-                if(_AccessLevelUser >= AccessLevel)
+                int AccessLevel = 0;
+                AccessLevel = Convert.ToInt32(row["AccesLevel"]);
+                if (_AccessLevelUser >= AccessLevel)
                 {
                     flpOptions.Controls.Add(new SWUserControls.SWLauchForm
                     {
-                          //Asignar propiedades de la DB al control
-                            
+                        Description = row["Description"].ToString(),
+                        ClassName = row["dllName"].ToString(),
+                        FormName = row["FormName"].ToString(),
+                        InitialImagePath = row["PicturePathMain"].ToString(),
+                        HoverImagePath = row["PicturePathHover"].ToString(),
+                      
                     });
                 }
             }
@@ -51,25 +69,19 @@ namespace JobHuntersSystem
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-            var user = CurrentUser.MainUser;
+            LoadUserOptions();
 
-            if (user != null)
+            lblUserName.Text = _UserName;
+            lblRoleUser.Text = _RoleUser;
+            if (File.Exists(_ProfileImagePath))
             {
-                lblUserName.Text = user.UserName;
-                lblRoleUser.Text = user.DescRank;
+                pctProfileImage.ImageLocation = _ProfileImagePath;
 
-                string fullPath = AppDomain.CurrentDomain.BaseDirectory + user.Photo;
-                if (System.IO.File.Exists(fullPath))
-                    pctProfileImage.Image = Image.FromFile(fullPath);
             }
-
-            speech = new SpeechManager(this);
-        }
-
-        private void pnlPanelTool_Click(object sender, EventArgs e)
-        {
-            frmUsers form = new frmUsers();
-            form.Show();
+            else
+            {
+                pctProfileImage.ImageLocation = AppDomain.CurrentDomain.BaseDirectory + "Multimedia/png/Anonym.png";
+            }
         }
     }
 }

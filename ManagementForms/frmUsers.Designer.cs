@@ -37,6 +37,10 @@ namespace ManagementForms
             this.SWtxtLogin = new SecureCoreInheritedControl.SWTextbox();
             this.SuspendLayout();
             // 
+            // lblTableName
+            // 
+            this.lblTableName.Size = new System.Drawing.Size(1129, 25);
+            // 
             // lblCodeUser
             // 
             this.lblCodeUser.AutoSize = true;
@@ -104,16 +108,16 @@ namespace ManagementForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(869, 704);
+            this.ClientSize = new System.Drawing.Size(1201, 729);
             this.Controls.Add(this.SWtxtLogin);
             this.Controls.Add(this.SWtxtUserName);
             this.Controls.Add(this.SWtxtCodeUser);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.lblUserName);
             this.Controls.Add(this.lblCodeUser);
+            this.MinimumSize = new System.Drawing.Size(1211, 768);
             this.Name = "frmUsers";
             this.Text = "Users";
-            this.Load += new System.EventHandler(this.frmUsers_Load);
             this.Controls.SetChildIndex(this.lblCodeUser, 0);
             this.Controls.SetChildIndex(this.lblUserName, 0);
             this.Controls.SetChildIndex(this.lblLogin, 0);
