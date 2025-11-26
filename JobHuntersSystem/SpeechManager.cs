@@ -88,10 +88,10 @@ namespace JobHuntersSystem
             }
         }
 
-        public void Stop()
+        /*public void Stop()
         {
             recognizer.RecognizeAsyncStop();
             recognizer.Dispose();
-        }
+        }*/
     }
 }
