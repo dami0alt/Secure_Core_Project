@@ -37,10 +37,6 @@ namespace ManagementForms
             this.lblCode = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // lblTableName
-            // 
-            this.lblTableName.Size = new System.Drawing.Size(1370, 25);
-            // 
             // swTextbox2
             // 
             this.swTextbox2.AllowedData = SecureCoreInheritedControl.DataType.Text;

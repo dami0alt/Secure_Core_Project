@@ -40,10 +40,11 @@ namespace ManagementForms
             this.SWtxtDescRank.AllowedData = SecureCoreInheritedControl.DataType.Text;
             this.SWtxtDescRank.DatabaseName = "DescRank";
             this.SWtxtDescRank.IsForeignKey = false;
-            this.SWtxtDescRank.Location = new System.Drawing.Point(155, 167);
+            this.SWtxtDescRank.Location = new System.Drawing.Point(177, 198);
+            this.SWtxtDescRank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SWtxtDescRank.Name = "SWtxtDescRank";
             this.SWtxtDescRank.NullSpace = true;
-            this.SWtxtDescRank.Size = new System.Drawing.Size(193, 21);
+            this.SWtxtDescRank.Size = new System.Drawing.Size(220, 24);
             this.SWtxtDescRank.TabIndex = 12;
             // 
             // SWtxtCodeRank
@@ -51,19 +52,20 @@ namespace ManagementForms
             this.SWtxtCodeRank.AllowedData = SecureCoreInheritedControl.DataType.Code;
             this.SWtxtCodeRank.DatabaseName = "CodeRank";
             this.SWtxtCodeRank.IsForeignKey = false;
-            this.SWtxtCodeRank.Location = new System.Drawing.Point(155, 116);
+            this.SWtxtCodeRank.Location = new System.Drawing.Point(177, 138);
+            this.SWtxtCodeRank.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.SWtxtCodeRank.Name = "SWtxtCodeRank";
             this.SWtxtCodeRank.NullSpace = true;
-            this.SWtxtCodeRank.Size = new System.Drawing.Size(193, 21);
+            this.SWtxtCodeRank.Size = new System.Drawing.Size(220, 24);
             this.SWtxtCodeRank.TabIndex = 11;
             // 
             // lblDescription
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(49, 167);
+            this.lblDescription.Location = new System.Drawing.Point(56, 198);
             this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(91, 18);
+            this.lblDescription.Size = new System.Drawing.Size(113, 23);
             this.lblDescription.TabIndex = 10;
             this.lblDescription.Text = "Description";
             // 
@@ -71,22 +73,22 @@ namespace ManagementForms
             // 
             this.lblCodeRank.AutoSize = true;
             this.lblCodeRank.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeRank.Location = new System.Drawing.Point(53, 119);
+            this.lblCodeRank.Location = new System.Drawing.Point(61, 141);
             this.lblCodeRank.Name = "lblCodeRank";
-            this.lblCodeRank.Size = new System.Drawing.Size(91, 18);
+            this.lblCodeRank.Size = new System.Drawing.Size(113, 23);
             this.lblCodeRank.TabIndex = 9;
             this.lblCodeRank.Text = "Code Rank";
             // 
             // frmUserRanks
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.ClientSize = new System.Drawing.Size(1201, 729);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.ClientSize = new System.Drawing.Size(1373, 866);
             this.Controls.Add(this.SWtxtDescRank);
             this.Controls.Add(this.SWtxtCodeRank);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblCodeRank);
             this.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
-            this.MinimumSize = new System.Drawing.Size(857, 594);
+            this.MinimumSize = new System.Drawing.Size(977, 697);
             this.Name = "frmUserRanks";
             this.Controls.SetChildIndex(this.lblCodeRank, 0);
             this.Controls.SetChildIndex(this.lblDescription, 0);

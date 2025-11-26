@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmSpaceShipCategories.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSpaceShipCategories.Designer.cs">
+      <DependentUpon>frmSpaceShipCategories.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmUserRanks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +79,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSpaceShipCategories.resx">
+      <DependentUpon>frmSpaceShipCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserRanks.resx">
       <DependentUpon>frmUserRanks.cs</DependentUpon>
