@@ -15,13 +15,7 @@ namespace JobHuntersSystem
 {
     public partial class frmMain : Form
     {
-        //A futuro remplazar las propiedaedes del "user"por un data set con la query del usuario
-        /*private int _AccessLevelUser;
-        private string _UserName = "Damian2005";
-        private string _RoleUser = "Admin";
-        private string _ProfileImagePath="Multimedia/png/Clon.png";*/
         
-
         private int _AccessLevelUser = CurrentUser.MainUser.AccesLevel;
         private string _UserName = CurrentUser.MainUser.UserName;
         private string _RoleUser = CurrentUser.MainUser.DescRank;
