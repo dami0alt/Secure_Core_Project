@@ -39,9 +39,9 @@ namespace ManagementForms
             // 
             this.lblCodeShip.AutoSize = true;
             this.lblCodeShip.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblCodeShip.Location = new System.Drawing.Point(67, 123);
+            this.lblCodeShip.Location = new System.Drawing.Point(59, 104);
             this.lblCodeShip.Name = "lblCodeShip";
-            this.lblCodeShip.Size = new System.Drawing.Size(106, 23);
+            this.lblCodeShip.Size = new System.Drawing.Size(85, 18);
             this.lblCodeShip.TabIndex = 4;
             this.lblCodeShip.Text = "Ship Code";
             // 
@@ -49,9 +49,9 @@ namespace ManagementForms
             // 
             this.lblDescShip.AutoSize = true;
             this.lblDescShip.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold);
-            this.lblDescShip.Location = new System.Drawing.Point(26, 201);
+            this.lblDescShip.Location = new System.Drawing.Point(23, 169);
             this.lblDescShip.Name = "lblDescShip";
-            this.lblDescShip.Size = new System.Drawing.Size(157, 23);
+            this.lblDescShip.Size = new System.Drawing.Size(126, 18);
             this.lblDescShip.TabIndex = 5;
             this.lblDescShip.Text = "Ship Description";
             // 
@@ -60,10 +60,10 @@ namespace ManagementForms
             this.swTextbox1.AllowedData = SecureCoreInheritedControl.DataType.Text;
             this.swTextbox1.DatabaseName = "";
             this.swTextbox1.IsForeignKey = false;
-            this.swTextbox1.Location = new System.Drawing.Point(189, 123);
+            this.swTextbox1.Location = new System.Drawing.Point(165, 104);
             this.swTextbox1.Name = "swTextbox1";
             this.swTextbox1.NullSpace = true;
-            this.swTextbox1.Size = new System.Drawing.Size(100, 24);
+            this.swTextbox1.Size = new System.Drawing.Size(88, 21);
             this.swTextbox1.TabIndex = 6;
             // 
             // swTextbox2
@@ -71,21 +71,22 @@ namespace ManagementForms
             this.swTextbox2.AllowedData = SecureCoreInheritedControl.DataType.Text;
             this.swTextbox2.DatabaseName = "";
             this.swTextbox2.IsForeignKey = false;
-            this.swTextbox2.Location = new System.Drawing.Point(189, 200);
+            this.swTextbox2.Location = new System.Drawing.Point(165, 168);
             this.swTextbox2.Name = "swTextbox2";
             this.swTextbox2.NullSpace = true;
-            this.swTextbox2.Size = new System.Drawing.Size(100, 24);
+            this.swTextbox2.Size = new System.Drawing.Size(88, 21);
             this.swTextbox2.TabIndex = 7;
             // 
             // frmSpaceShipCategories
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1199, 721);
+            this.ClientSize = new System.Drawing.Size(1051, 614);
             this.Controls.Add(this.swTextbox2);
             this.Controls.Add(this.swTextbox1);
             this.Controls.Add(this.lblDescShip);
             this.Controls.Add(this.lblCodeShip);
+            this.MinimumSize = new System.Drawing.Size(1067, 653);
             this.Name = "frmSpaceShipCategories";
             this.Text = "frmSpaceShipCategories";
             this.Controls.SetChildIndex(this.lblCodeShip, 0);
