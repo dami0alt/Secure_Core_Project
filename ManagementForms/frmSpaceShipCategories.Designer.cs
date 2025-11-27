@@ -63,7 +63,7 @@ namespace ManagementForms
             this.swTextbox1.Location = new System.Drawing.Point(165, 104);
             this.swTextbox1.Name = "swTextbox1";
             this.swTextbox1.NullSpace = true;
-            this.swTextbox1.Size = new System.Drawing.Size(88, 21);
+            this.swTextbox1.Size = new System.Drawing.Size(131, 21);
             this.swTextbox1.TabIndex = 6;
             // 
             // swTextbox2
@@ -74,7 +74,7 @@ namespace ManagementForms
             this.swTextbox2.Location = new System.Drawing.Point(165, 168);
             this.swTextbox2.Name = "swTextbox2";
             this.swTextbox2.NullSpace = true;
-            this.swTextbox2.Size = new System.Drawing.Size(88, 21);
+            this.swTextbox2.Size = new System.Drawing.Size(131, 21);
             this.swTextbox2.TabIndex = 7;
             // 
             // frmSpaceShipCategories
