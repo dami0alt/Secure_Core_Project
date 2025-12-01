@@ -21,7 +21,6 @@ namespace ManagementForms
         public frmBasefk()
         {
             InitializeComponent();
-            dbManager = new BaseDeDades();
         }
 
         protected DataSet dts;
@@ -138,6 +137,7 @@ namespace ManagementForms
         private void frmBase_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
+            dbManager = new BaseDeDades();
             dts = dbManager.PortarTaula(_tableName);
 
             BindControls();
