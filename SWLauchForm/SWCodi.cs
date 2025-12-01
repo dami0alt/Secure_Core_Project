@@ -236,6 +236,7 @@ namespace SWUserControls
         }
         private void SWCodi_Load(object sender, EventArgs e)
         {
+            if (DesignMode) return;
             dbManagement = new BaseDeDades();
         }
 
