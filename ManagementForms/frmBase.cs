@@ -107,7 +107,7 @@ namespace ManagementForms
             dgtData.DefaultCellStyle.Font = new Font("Century Gothic", 9);
             dgtData.DefaultCellStyle.BackColor = Color.White;
             dgtData.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-
+            dgtData.AllowUserToAddRows = false;
             //dgtData.RowHeadersVisible = false;
 
         }
@@ -157,5 +157,9 @@ namespace ManagementForms
             this.Close();
         }
 
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

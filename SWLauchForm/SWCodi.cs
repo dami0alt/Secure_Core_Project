@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentesDeAcceso;
+using System.Reflection;
 
 namespace SWUserControls
 {
@@ -20,6 +21,19 @@ namespace SWUserControls
         }
         BaseDeDades dbManagement;
         DataSet ds;
+
+        Object dllBD;
+        Type types;
+
+        private bool isValidated=true;
+        string codeValidated;
+        string descValidated;
+
+        Color notNullColor = Color.LightGray;
+        Color defaultColor = Color.White;
+        Color ErrorColor = Color.LightSalmon;
+
+        #region public properties
         private string _NomTaula;
         public string NomTaula
         {
@@ -50,35 +64,72 @@ namespace SWUserControls
             get { return _ControlID; }
             set { _ControlID = value; }
         }
-        public DataSet GetDataSWCodi()
+        private bool _NullSpace = true;
+
+        [Category("Comportamiento")]
+        [Description("Si está en true, permite valores nulls")]
+        public bool NullSpace
+        {
+            get { return _NullSpace; }
+            set { _NullSpace = value;
+                if (!_NullSpace)
+                {
+                    txtCode.BackColor = notNullColor;
+                }
+            }
+        }
+        private string _FormCS;
+        public string FormCS
+        {
+            get { return _FormCS; }
+            set { _FormCS = value;}
+        }
+        private string _ClasseCS;
+        public string ClasseCS
+        {
+            get { return _ClasseCS; }
+            set { _ClasseCS = value; }
+        }
+
+        #endregion
+        public DataSet GetData()
         {
             DataSet _ds = new DataSet();
             string code = txtCode.Text;
-            string query = $"SELECT {_NomDesc},{_NomId} FROM {_NomTaula} WHERE {_NomCodi}='{code}'";
+            string query = $"SELECT {_NomDesc},{_NomId},{_NomCodi}  FROM {_NomTaula} WHERE {_NomCodi}='{code}'";
             _ds = dbManagement.PortarPerConsulta(query);
             return _ds;
         }
-        public DataSet GetDataSWTextbox(string idString)
+        //get data by Id
+        public DataSet GetData(string idString)
         {
             DataSet _ds = new DataSet();
             if(int.TryParse(idString,out int id))
             {
-                string query = $"SELECT {_NomDesc},{_NomCodi} FROM {_NomTaula} WHERE {_NomId}='{id}'";
+                string query = $"SELECT {_NomDesc},{_NomCodi},{_NomId} FROM {_NomTaula} WHERE {_NomId}='{id}'";
                 _ds = dbManagement.PortarPerConsulta(query);
             }
             return _ds;
         }
 
-        private void SetSWTextboxData()
+        private void SetSWTextboxData(DataSet ds)
         {
+            string id = string.Empty;
+
+            if (!string.IsNullOrEmpty(codeValidated))
+            {
+                id = ds.Tables[0].Rows[0][_NomId].ToString();
+            }
+
             Form parentForm = this.FindForm();
-            foreach(Control ctrl in parentForm.Controls)
+            foreach (Control ctrl in parentForm.Controls)
             {
                 if (ctrl.Name == _ControlID)
                 {
-                    ctrl.Text = ds.Tables[0].Rows[0][_NomId].ToString();
+                    ctrl.Text = id;
                 }
             }
+            
         }
         public void SetSWCodiData(DataSet _ds)
         {
@@ -87,31 +138,115 @@ namespace SWUserControls
                 this.txtCode.Text = _ds.Tables[0].Rows[0][_NomCodi].ToString();
                 this.txtDescription.Text = _ds.Tables[0].Rows[0][_NomDesc].ToString();
 
+                codeValidated= this.txtCode.Text;
+                descValidated= this.txtDescription.Text;
             }
             else
             {
-                this.txtDescription.Text = "Unknown";
-                this.txtCode.Clear();
+                txtCode.Text = string.Empty;
+                txtDescription.Text = "Unknown Data";
             }
            
         }
+        private void obreCS(string formCS, string classeCS)
+        {
+            if (formCS != null || classeCS != null)
+            {
+                Assembly assembly;
+                Object[] args = { _NomTaula };
+
+                assembly = Assembly.LoadFrom(classeCS);
+
+                types = assembly.GetType(formCS);
+                dllBD = Activator.CreateInstance(types, args);
+
+                ((Form)dllBD).TopLevel = false;
+                ((Form)dllBD).FormBorderStyle = FormBorderStyle.None;
+                ((Form)dllBD).Show();
+            }
+        }
         private void Validacodi(object sender, CancelEventArgs e)
         {
-            ds = GetDataSWCodi();
-            if (ds.Tables[0].Rows.Count > 0 && !string.IsNullOrEmpty(txtCode.Text))
+            if (!isValidated)
             {
-                txtDescription.Text = ds.Tables[0].Rows[0][_NomDesc].ToString();
-                SetSWTextboxData();
+                isValidated = true;
+                txtCode.Text = codeValidated;
+                txtDescription.Text = descValidated;
+
+                if (NullSpace)
+                {
+                    txtCode.BackColor = defaultColor;
+                    txtDescription.BackColor = defaultColor;
+                }
+                else
+                {
+                    txtCode.BackColor = notNullColor;
+                    txtDescription.BackColor = notNullColor;
+                }
+                e.Cancel = true;
             }
             else
             {
-                txtDescription.Text = "Unknown Data";
-                e.Cancel = true;
+                if (string.IsNullOrEmpty(txtCode.Text))
+                {
+                    if (!_NullSpace)
+                    {
+                        isValidated = false;
+
+                        txtCode.BackColor = ErrorColor;
+                        txtDescription.BackColor = ErrorColor;
+
+                        txtDescription.Text = "Required Data";
+                        this.txtCode.Focus();
+                    }
+                    else
+                    {
+                        isValidated = true;
+                        codeValidated = string.Empty;
+                        descValidated = "Unknown Data";
+
+                        txtDescription.Text = descValidated;
+                        txtCode.Text = codeValidated;
+                        SetSWTextboxData(ds);
+                    }
+                }
+                else
+                {
+                    ds = GetData();
+                    if (ds.Tables[0].Rows.Count > 0)
+                    {
+                        isValidated = true;
+                        SetSWCodiData(ds);
+                        SetSWTextboxData(ds);
+
+                        txtCode.Text = codeValidated;
+                        txtDescription.Text = descValidated;
+                    }
+                    else
+                    {
+                        isValidated = false;
+                        txtDescription.Text = "Unknown Data - Wrong Code";
+
+                        txtCode.BackColor = ErrorColor;
+                        txtDescription.BackColor = ErrorColor;
+                        this.txtCode.Focus();
+                    }
+                }
             }
         }
         private void SWCodi_Load(object sender, EventArgs e)
         {
             dbManagement = new BaseDeDades();
+        }
+
+        private void txtCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.F2)
+            {
+                obreCS(FormCS, ClasseCS);
+                e.Handled = true; 
+            }
+
         }
     }
 }
