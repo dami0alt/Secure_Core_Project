@@ -70,47 +70,71 @@ namespace ManagementForms
 
             dts = dbManager.PortarTaula(_tableName);
 
+            timerInfo.Start();
+            lblInfo.ForeColor = Color.LightGreen;
+            lblInfo.Text = "Registers Updated !!";
+
             BindControls();
             dgtData.DataSource = dts.Tables[0];
         }
         protected virtual void NewRegister()
         {
-            DataRow row;
+            DataRow row; 
             row = dts.Tables[0].NewRow();
 
             foreach (Control ctrl in this.Controls)
             {
                 if(ctrl is SWTextbox)
                 {
-                    row[((SWTextbox)ctrl).DatabaseName] = ctrl.Text;
+                    string value = ctrl.Text;
+                  
+                    if (string.IsNullOrEmpty(value))
+                    {
+                        string name = ctrl.Name;
+                        if (((SWTextbox)ctrl).NullSpace)
+                        {
+                            row[((SWTextbox)ctrl).DatabaseName] = DBNull.Value;
+                        }
+                        else
+                        {
+                            lblInfo.Visible = true;
+                            throw new ArgumentException($"The {name} is required, please check it out. ");
+                        }
+                    }
+                    else
+                    {
+                        row[((SWTextbox)ctrl).DatabaseName] = value;
+                    }
                 }
                 else if (ctrl is ComboBox)
                 {
+                
+                    row[ctrl.Tag.ToString()] = DBNull.Value;
                     row[ctrl.Tag.ToString()] = ((ComboBox)ctrl).SelectedValue;
                 }
             }
             dts.Tables[0].Rows.Add(row);     
         }
-        //protected virtual void ConfigurateDataGridView()
-        //{
-        //    foreach (DataGridViewColumn col in dgtData.Columns)
-        //    {
-        //        if (col.Name.ToLower().Substring(0, 2) == "id")
-        //        {
-        //            col.Visible = false;
-        //        }
-        //    }
-        //    //Setup 
-        //    dgtData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+        protected virtual void ConfigurateDataGridView()
+        {
+            //foreach (DataGridViewColumn col in dgtData.Columns)
+            //{
+            //    if (col.Name.ToLower().Substring(0, 2) == "id")
+            //    {
+            //        col.Visible = false;
+            //    }
+            //}
+            //Setup 
+            dgtData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-        //    dgtData.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10, FontStyle.Bold);
-        //    dgtData.DefaultCellStyle.Font = new Font("Century Gothic", 9);
-        //    dgtData.DefaultCellStyle.BackColor = Color.White;
-        //    dgtData.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dgtData.ColumnHeadersDefaultCellStyle.Font = new Font("Century Gothic", 10, FontStyle.Bold);
+            dgtData.DefaultCellStyle.Font = new Font("Century Gothic", 9);
+            dgtData.DefaultCellStyle.BackColor = Color.White;
+            dgtData.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
+            dgtData.AllowUserToAddRows = false;
+            //dgtData.RowHeadersVisible = false;
 
-        //    //dgtData.RowHeadersVisible = false;
-
-        //}
+        }
         private void frmBase_Load(object sender, EventArgs e)
         {
             if (DesignMode) return;
@@ -118,7 +142,7 @@ namespace ManagementForms
 
             BindControls();
             dgtData.DataSource = dts.Tables[0];
-            //ConfigurateDataGridView();
+            ConfigurateDataGridView();
             lblTableName.Text = _tableName;
         }
         private void SWTextbox_Validated(object sender, EventArgs e)
@@ -150,12 +174,30 @@ namespace ManagementForms
         }
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            UpdateRegisters();
+            try
+            {
+                UpdateRegisters();
+            }catch(Exception ex)
+            {
+                timerInfo.Start();
+                lblInfo.Text = ex.Message;
+            }
         }
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        private void btnClose_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void timerInfo_Tick(object sender, EventArgs e)
+        {
+            timerInfo.Stop();
+            lblInfo.Visible = false;
+            timerInfo.Dispose();
+        }
     }
 }

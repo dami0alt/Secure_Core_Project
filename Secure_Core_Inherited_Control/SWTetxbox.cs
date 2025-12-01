@@ -21,13 +21,16 @@ namespace SecureCoreInheritedControl
 
     public class SWTextbox : TextBox
     {
-
         private DataType _AllowedData = DataType.Text;
         private string _DatabaseName = "";
         private bool _NullSpace = true;
         private Color _OriginalColor;
         private bool _IsValid = true;
         private bool _IsForeignKey = false;
+
+
+        Color notNullColor = Color.LightGray;
+        Color defaultColor = Color.White;
 
         public DataType AllowedData
         {
@@ -44,7 +47,12 @@ namespace SecureCoreInheritedControl
         public bool NullSpace
         {
             get { return _NullSpace; }
-            set { _NullSpace = value; }
+            set { _NullSpace = value;
+                if (!_NullSpace)
+                {
+                    this.BackColor = notNullColor;
+                }
+            }
         }
 
         public bool IsValid
@@ -67,7 +75,7 @@ namespace SecureCoreInheritedControl
 
         public SWTextbox()
         {
-            _OriginalColor = this.BackColor;
+            //_OriginalColor = this.BackColor;
             InitializeComponent();
             this.Enter += SWTextbox_Enter;
             this.Leave += SWTextbox_Leave;
@@ -119,6 +127,11 @@ namespace SecureCoreInheritedControl
             }
             
         }
+        //BORRAR A FUTURO
+        public void SetDefaultData()
+        {
+            this.Text = "1";
+        }
 
         private void InitializeComponent()
         {
@@ -127,26 +140,33 @@ namespace SecureCoreInheritedControl
             // SWTextbox
             // 
             this.TextChanged += new System.EventHandler(this.SWTextbox_TextChanged);
+            this.Validated += new System.EventHandler(this.SWTextbox_Validated);
             this.ResumeLayout(false);
 
         }
 
         private void SWTextbox_TextChanged(object sender, EventArgs e)
         {
-            Form parentForm = this.FindForm();
+            string value = this.Text;
 
             if (_IsForeignKey)
             {
+                Form parentForm = this.FindForm();
                 foreach (Control ctrl in parentForm.Controls)
                 {
-                    if (ctrl.Name == _ControlID)    
+                    if (ctrl.Name == _ControlID)
                     {
                         DataSet ds = new DataSet();
-                        ds = ((SWCodi)ctrl).GetDataSWTextbox(this.Text);
+                        ds = ((SWCodi)ctrl).GetData(value);
                         ((SWCodi)ctrl).SetSWCodiData(ds);
                     }
                 }
-            }
+            }      
+        }
+
+        private void SWTextbox_Validated(object sender, EventArgs e)
+        {
+          
         }
     }
 }

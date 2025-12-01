@@ -34,6 +34,7 @@ namespace ManagementForms
             this.dgtData = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgtData)).BeginInit();
             this.SuspendLayout();
@@ -41,6 +42,7 @@ namespace ManagementForms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.pnlHeader.Controls.Add(this.btnClose);
             this.pnlHeader.Controls.Add(this.lblTableName);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
@@ -64,9 +66,9 @@ namespace ManagementForms
             this.lblTableName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.lblTableName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTableName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(244)))));
-            this.lblTableName.Location = new System.Drawing.Point(0, 9);
+            this.lblTableName.Location = new System.Drawing.Point(323, 9);
             this.lblTableName.Name = "lblTableName";
-            this.lblTableName.Size = new System.Drawing.Size(1198, 25);
+            this.lblTableName.Size = new System.Drawing.Size(555, 25);
             this.lblTableName.TabIndex = 0;
             this.lblTableName.Text = "Table Name";
             this.lblTableName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -109,6 +111,19 @@ namespace ManagementForms
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnClose.BackColor = System.Drawing.Color.Red;
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(1152, 7);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 29);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            // 
             // frmBase
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -140,5 +155,6 @@ namespace ManagementForms
         private System.Windows.Forms.Button btnCreate;
         protected System.Windows.Forms.DataGridView dgtData;
         protected System.Windows.Forms.Label lblTableName;
+        private System.Windows.Forms.Button btnClose;
     }
 }

@@ -29,11 +29,15 @@ namespace ManagementForms
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.btnClose = new System.Windows.Forms.Button();
             this.lblTableName = new System.Windows.Forms.Label();
             this.dgtData = new System.Windows.Forms.DataGridView();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnCreate = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.timerInfo = new System.Windows.Forms.Timer(this.components);
             this.pnlHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgtData)).BeginInit();
             this.SuspendLayout();
@@ -41,6 +45,7 @@ namespace ManagementForms
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
+            this.pnlHeader.Controls.Add(this.btnClose);
             this.pnlHeader.Controls.Add(this.lblTableName);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.Location = new System.Drawing.Point(0, 0);
@@ -49,10 +54,23 @@ namespace ManagementForms
             this.pnlHeader.Size = new System.Drawing.Size(1201, 43);
             this.pnlHeader.TabIndex = 0;
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnClose.BackColor = System.Drawing.Color.Red;
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
+            this.btnClose.Location = new System.Drawing.Point(1158, 5);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(30, 29);
+            this.btnClose.TabIndex = 1;
+            this.btnClose.Text = "X";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click_1);
+            // 
             // lblTableName
             // 
-            this.lblTableName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.lblTableName.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTableName.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
             this.lblTableName.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -101,12 +119,31 @@ namespace ManagementForms
             this.btnCreate.UseVisualStyleBackColor = true;
             this.btnCreate.Click += new System.EventHandler(this.btnCreate_Click);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblInfo.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.lblInfo.Location = new System.Drawing.Point(327, 341);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(602, 23);
+            this.lblInfo.TabIndex = 4;
+            this.lblInfo.Text = "Wrong Message ";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblInfo.Visible = false;
+            // 
+            // timerInfo
+            // 
+            this.timerInfo.Interval = 3000;
+            this.timerInfo.Tick += new System.EventHandler(this.timerInfo_Tick);
+            // 
             // frmBasefk
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(102)))), ((int)(((byte)(86)))), ((int)(((byte)(68)))));
             this.ClientSize = new System.Drawing.Size(1201, 729);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgtData);
@@ -132,5 +169,8 @@ namespace ManagementForms
         private System.Windows.Forms.Button btnCreate;
         protected System.Windows.Forms.DataGridView dgtData;
         protected System.Windows.Forms.Label lblTableName;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Timer timerInfo;
     }
 }
