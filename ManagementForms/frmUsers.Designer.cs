@@ -43,7 +43,6 @@ namespace ManagementForms
             this.SWtxtSpecie = new SecureCoreInheritedControl.SWTextbox();
             this.SWcdSpecie = new SWUserControls.SWCodi();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnDebugging = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
             this.SWtxtUserName = new SecureCoreInheritedControl.SWTextbox();
             this.SWtxtUserCode = new SecureCoreInheritedControl.SWTextbox();
@@ -59,7 +58,9 @@ namespace ManagementForms
             // 
             // SWcdUserCategory
             // 
+            this.SWcdUserCategory.ClasseCS = null;
             this.SWcdUserCategory.ControlID = "SWtxtUserCategoryId";
+            this.SWcdUserCategory.FormCS = null;
             this.SWcdUserCategory.Location = new System.Drawing.Point(168, 186);
             this.SWcdUserCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdUserCategory.Name = "SWcdUserCategory";
@@ -67,19 +68,20 @@ namespace ManagementForms
             this.SWcdUserCategory.NomDesc = "DescCategory";
             this.SWcdUserCategory.NomId = "idUserCategory";
             this.SWcdUserCategory.NomTaula = "UserCategories";
-            this.SWcdUserCategory.NullSpace = true;
+            this.SWcdUserCategory.NullSpace = false;
             this.SWcdUserCategory.Size = new System.Drawing.Size(339, 60);
             this.SWcdUserCategory.TabIndex = 4;
             // 
             // SWtxtUserCategoryId
             // 
             this.SWtxtUserCategoryId.AllowedData = SecureCoreInheritedControl.DataType.Number;
+            this.SWtxtUserCategoryId.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(125)))), ((int)(((byte)(121)))));
             this.SWtxtUserCategoryId.ControlID = "SWcdUserCategory";
             this.SWtxtUserCategoryId.DatabaseName = "idUserCategory";
             this.SWtxtUserCategoryId.IsForeignKey = true;
             this.SWtxtUserCategoryId.Location = new System.Drawing.Point(513, 212);
             this.SWtxtUserCategoryId.Name = "SWtxtUserCategoryId";
-            this.SWtxtUserCategoryId.NullSpace = true;
+            this.SWtxtUserCategoryId.NullSpace = false;
             this.SWtxtUserCategoryId.Size = new System.Drawing.Size(60, 21);
             this.SWtxtUserCategoryId.TabIndex = 5;
             // 
@@ -115,18 +117,21 @@ namespace ManagementForms
             // SWtxtUserRank
             // 
             this.SWtxtUserRank.AllowedData = SecureCoreInheritedControl.DataType.Number;
+            this.SWtxtUserRank.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(125)))), ((int)(((byte)(121)))));
             this.SWtxtUserRank.ControlID = "SWcdUserRank";
             this.SWtxtUserRank.DatabaseName = "idUserRank";
             this.SWtxtUserRank.IsForeignKey = true;
             this.SWtxtUserRank.Location = new System.Drawing.Point(513, 259);
             this.SWtxtUserRank.Name = "SWtxtUserRank";
-            this.SWtxtUserRank.NullSpace = true;
+            this.SWtxtUserRank.NullSpace = false;
             this.SWtxtUserRank.Size = new System.Drawing.Size(60, 21);
             this.SWtxtUserRank.TabIndex = 7;
             // 
             // SWcdUserRank
             // 
+            this.SWcdUserRank.ClasseCS = "ManagementForms.dll";
             this.SWcdUserRank.ControlID = "SWtxtUserRank";
+            this.SWcdUserRank.FormCS = "ManagementForms.frmUsers";
             this.SWcdUserRank.Location = new System.Drawing.Point(167, 233);
             this.SWcdUserRank.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdUserRank.Name = "SWcdUserRank";
@@ -134,7 +139,7 @@ namespace ManagementForms
             this.SWcdUserRank.NomDesc = "DescRank";
             this.SWcdUserRank.NomId = "idUserRank";
             this.SWcdUserRank.NomTaula = "UserRanks";
-            this.SWcdUserRank.NullSpace = true;
+            this.SWcdUserRank.NullSpace = false;
             this.SWcdUserRank.Size = new System.Drawing.Size(340, 74);
             this.SWcdUserRank.TabIndex = 6;
             // 
@@ -151,18 +156,21 @@ namespace ManagementForms
             // SWtxtPlanet
             // 
             this.SWtxtPlanet.AllowedData = SecureCoreInheritedControl.DataType.Number;
+            this.SWtxtPlanet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(125)))), ((int)(((byte)(121)))));
             this.SWtxtPlanet.ControlID = "SWcdPlanet";
             this.SWtxtPlanet.DatabaseName = "idPlanet";
             this.SWtxtPlanet.IsForeignKey = true;
             this.SWtxtPlanet.Location = new System.Drawing.Point(513, 307);
             this.SWtxtPlanet.Name = "SWtxtPlanet";
-            this.SWtxtPlanet.NullSpace = true;
+            this.SWtxtPlanet.NullSpace = false;
             this.SWtxtPlanet.Size = new System.Drawing.Size(60, 21);
             this.SWtxtPlanet.TabIndex = 9;
             // 
             // SWcdPlanet
             // 
+            this.SWcdPlanet.ClasseCS = null;
             this.SWcdPlanet.ControlID = "SWtxtPlanet";
+            this.SWcdPlanet.FormCS = null;
             this.SWcdPlanet.Location = new System.Drawing.Point(168, 280);
             this.SWcdPlanet.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdPlanet.Name = "SWcdPlanet";
@@ -170,7 +178,7 @@ namespace ManagementForms
             this.SWcdPlanet.NomDesc = "DescPlanet";
             this.SWcdPlanet.NomId = "idPlanet";
             this.SWcdPlanet.NomTaula = "Planets";
-            this.SWcdPlanet.NullSpace = true;
+            this.SWcdPlanet.NullSpace = false;
             this.SWcdPlanet.Size = new System.Drawing.Size(339, 60);
             this.SWcdPlanet.TabIndex = 8;
             // 
@@ -178,31 +186,31 @@ namespace ManagementForms
             // 
             this.lblSpecie.AutoSize = true;
             this.lblSpecie.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpecie.Location = new System.Drawing.Point(666, 69);
+            this.lblSpecie.Location = new System.Drawing.Point(600, 74);
             this.lblSpecie.Name = "lblSpecie";
             this.lblSpecie.Size = new System.Drawing.Size(60, 18);
             this.lblSpecie.TabIndex = 18;
             this.lblSpecie.Text = "Specie";
-            this.lblSpecie.Click += new System.EventHandler(this.lblSpecie_Click);
             // 
             // SWtxtSpecie
             // 
             this.SWtxtSpecie.AllowedData = SecureCoreInheritedControl.DataType.Number;
-            this.SWtxtSpecie.BackColor = System.Drawing.Color.DimGray;
+            this.SWtxtSpecie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(125)))), ((int)(((byte)(121)))));
             this.SWtxtSpecie.ControlID = "SWcdSpecie";
             this.SWtxtSpecie.DatabaseName = "idSpecie";
             this.SWtxtSpecie.IsForeignKey = true;
-            this.SWtxtSpecie.Location = new System.Drawing.Point(1070, 70);
+            this.SWtxtSpecie.Location = new System.Drawing.Point(1004, 75);
             this.SWtxtSpecie.Name = "SWtxtSpecie";
             this.SWtxtSpecie.NullSpace = false;
             this.SWtxtSpecie.Size = new System.Drawing.Size(60, 21);
             this.SWtxtSpecie.TabIndex = 11;
-            this.SWtxtSpecie.TextChanged += new System.EventHandler(this.SWtxtSpecie_TextChanged);
             // 
             // SWcdSpecie
             // 
+            this.SWcdSpecie.ClasseCS = null;
             this.SWcdSpecie.ControlID = "SWtxtSpecie";
-            this.SWcdSpecie.Location = new System.Drawing.Point(723, 44);
+            this.SWcdSpecie.FormCS = null;
+            this.SWcdSpecie.Location = new System.Drawing.Point(657, 49);
             this.SWcdSpecie.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdSpecie.Name = "SWcdSpecie";
             this.SWcdSpecie.NomCodi = "CodeSpecie";
@@ -212,7 +220,6 @@ namespace ManagementForms
             this.SWcdSpecie.NullSpace = false;
             this.SWcdSpecie.Size = new System.Drawing.Size(340, 78);
             this.SWcdSpecie.TabIndex = 10;
-            this.SWcdSpecie.Load += new System.EventHandler(this.SWcdSpecie_Load);
             // 
             // btnClose
             // 
@@ -226,17 +233,6 @@ namespace ManagementForms
             this.btnClose.TabIndex = 19;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnDebugging
-            // 
-            this.btnDebugging.Location = new System.Drawing.Point(1003, 308);
-            this.btnDebugging.Name = "btnDebugging";
-            this.btnDebugging.Size = new System.Drawing.Size(127, 23);
-            this.btnDebugging.TabIndex = 19;
-            this.btnDebugging.Text = "Set Default Data";
-            this.btnDebugging.UseVisualStyleBackColor = true;
-            this.btnDebugging.Click += new System.EventHandler(this.btnDebugging_Click);
             // 
             // lblUserName
             // 
@@ -251,13 +247,13 @@ namespace ManagementForms
             // SWtxtUserName
             // 
             this.SWtxtUserName.AllowedData = SecureCoreInheritedControl.DataType.Text;
-            this.SWtxtUserName.BackColor = System.Drawing.Color.DimGray;
+            this.SWtxtUserName.BackColor = System.Drawing.SystemColors.Window;
             this.SWtxtUserName.ControlID = null;
             this.SWtxtUserName.DatabaseName = "UserName";
             this.SWtxtUserName.IsForeignKey = false;
             this.SWtxtUserName.Location = new System.Drawing.Point(174, 70);
             this.SWtxtUserName.Name = "SWtxtUserName";
-            this.SWtxtUserName.NullSpace = false;
+            this.SWtxtUserName.NullSpace = true;
             this.SWtxtUserName.Size = new System.Drawing.Size(171, 21);
             this.SWtxtUserName.TabIndex = 1;
             // 
@@ -286,12 +282,13 @@ namespace ManagementForms
             // SWtxtLogin
             // 
             this.SWtxtLogin.AllowedData = SecureCoreInheritedControl.DataType.Text;
+            this.SWtxtLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(206)))), ((int)(((byte)(125)))), ((int)(((byte)(121)))));
             this.SWtxtLogin.ControlID = null;
             this.SWtxtLogin.DatabaseName = "Login";
             this.SWtxtLogin.IsForeignKey = false;
             this.SWtxtLogin.Location = new System.Drawing.Point(174, 166);
             this.SWtxtLogin.Name = "SWtxtLogin";
-            this.SWtxtLogin.NullSpace = true;
+            this.SWtxtLogin.NullSpace = false;
             this.SWtxtLogin.Size = new System.Drawing.Size(171, 21);
             this.SWtxtLogin.TabIndex = 3;
             // 
@@ -315,7 +312,6 @@ namespace ManagementForms
             this.Controls.Add(this.lblUserCode);
             this.Controls.Add(this.SWtxtUserName);
             this.Controls.Add(this.lblUserName);
-            this.Controls.Add(this.btnDebugging);
             this.Controls.Add(this.SWcdPlanet);
             this.Controls.Add(this.lblSpecie);
             this.Controls.Add(this.SWtxtSpecie);
@@ -344,7 +340,6 @@ namespace ManagementForms
             this.Controls.SetChildIndex(this.SWtxtSpecie, 0);
             this.Controls.SetChildIndex(this.lblSpecie, 0);
             this.Controls.SetChildIndex(this.SWcdPlanet, 0);
-            this.Controls.SetChildIndex(this.btnDebugging, 0);
             this.Controls.SetChildIndex(this.lblUserName, 0);
             this.Controls.SetChildIndex(this.SWtxtUserName, 0);
             this.Controls.SetChildIndex(this.lblUserCode, 0);
@@ -372,7 +367,6 @@ namespace ManagementForms
         private SecureCoreInheritedControl.SWTextbox SWtxtSpecie;
         private SWUserControls.SWCodi SWcdSpecie;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnDebugging;
         private System.Windows.Forms.Label lblUserName;
         private SecureCoreInheritedControl.SWTextbox SWtxtUserName;
         private SecureCoreInheritedControl.SWTextbox SWtxtUserCode;
