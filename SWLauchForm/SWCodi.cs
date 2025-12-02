@@ -29,7 +29,7 @@ namespace SWUserControls
         string codeValidated;
         string descValidated;
 
-        Color notNullColor = Color.LightGray;
+        Color notNullColor = Color.FromArgb(168, 194, 204);
         Color defaultColor = Color.White;
         Color ErrorColor = Color.LightSalmon;
 
@@ -66,8 +66,8 @@ namespace SWUserControls
         }
         private bool _NullSpace = true;
 
-        [Category("Comportamiento")]
-        [Description("Si está en true, permite valores nulls")]
+        //[Category("Comportamiento")]
+        //[Description("Si está en true, permite valores nulls")]
         public bool NullSpace
         {
             get { return _NullSpace; }
@@ -148,16 +148,17 @@ namespace SWUserControls
             }
            
         }
-        private void obreCS(string formCS, string classeCS)
+        private void obreCS()
         {
-            if (formCS != null || classeCS != null)
+            if (_FormCS != null || _ClasseCS != null)
             {
+                string ControlId = this.txtCode.Name;
                 Assembly assembly;
-                Object[] args = { _NomTaula };
+                Object[] args = { _NomTaula, _FormCS, _ControlID};
 
-                assembly = Assembly.LoadFrom(classeCS);
+                assembly = Assembly.LoadFrom(_ClasseCS);
 
-                types = assembly.GetType(formCS);
+                types = assembly.GetType(_FormCS);
                 dllBD = Activator.CreateInstance(types, args);
 
                 ((Form)dllBD).TopLevel = false;
@@ -181,7 +182,7 @@ namespace SWUserControls
                 else
                 {
                     txtCode.BackColor = notNullColor;
-                    txtDescription.BackColor = notNullColor;
+                    txtDescription.BackColor = defaultColor;
                 }
                 e.Cancel = true;
             }
@@ -242,12 +243,18 @@ namespace SWUserControls
 
         private void txtCode_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.F2)
+            try
             {
-                obreCS(FormCS, ClasseCS);
-                e.Handled = true; 
+                if (e.KeyCode == Keys.F2)
+                {
+                    obreCS();
+                    e.Handled = true;
+                }
             }
-
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
