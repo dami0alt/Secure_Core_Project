@@ -16,7 +16,8 @@ namespace SecureCoreInheritedControl
     {
         Number,
         Text,
-        Code
+        Code,
+        Rgb
     }
 
     public class SWTextbox : TextBox
@@ -122,6 +123,14 @@ namespace SecureCoreInheritedControl
             if (validation && AllowedData == DataType.Text && text.Length > 0)
             {
                 validation = Regex.IsMatch(text, @"^(?=.*[a-zA-Z])[a-zA-Z0-9\s\p{P}\p{S}]+$");
+            }
+
+            if (validation && AllowedData == DataType.Rgb && text.Length > 0)
+            {
+                string pattern = @"^([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]);" +
+            "([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]);" +
+            "([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$";
+                validation = Regex.IsMatch(text, pattern);
             }
 
             _IsValid = validation;
