@@ -121,7 +121,7 @@ namespace SecureCoreInheritedControl
 
             if (validation && AllowedData == DataType.Text && text.Length > 0)
             {
-                validation = Regex.IsMatch(text, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
+                validation = Regex.IsMatch(text, @"^(?=.*[a-zA-Z])[a-zA-Z0-9\s\p{P}\p{S}]+$");
             }
 
             _IsValid = validation;
