@@ -54,7 +54,8 @@ namespace MenuOption
             // 
             // lblTableName
             // 
-            this.lblTableName.Size = new System.Drawing.Size(1592, 21);
+            this.lblTableName.Location = new System.Drawing.Point(355, 11);
+            this.lblTableName.Size = new System.Drawing.Size(491, 21);
             // 
             // SWtxtPicturePathMain
             // 
