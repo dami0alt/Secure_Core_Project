@@ -9,34 +9,34 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentesDeAcceso;
 using SecureCoreInheritedControl;
-
+using SWUserControls;
 
 namespace ManagementForms
 {
-    //hacer constructor
     public partial class frmScreenCS : Form
     {
         protected BaseDeDades db;
         protected string _tableName, _controlId, _formName;
         protected DataSet dts;
-
-        public string IdSelected { get; set; }
-        public frmScreenCS(string tableName, string controlId, string formName)
+        protected SWTextbox txt;
+        public frmScreenCS(string tableName /*string controlId, string formName*/)
         {
             InitializeComponent();
             _tableName = tableName;
-            _controlId = controlId;
-            _formName = formName;
+            //_controlId = controlId;
+            //_formName = formName;
+            _controlId = "SWtxtUserCategoryId";
+            _formName = "frmUserRanks";
         }
         protected Dictionary<string, string> GetValues()
         {
             Dictionary<string, string> keyValuePairs = new Dictionary<string, string>();
-
+            
             foreach (Control ctrl in this.Controls)
             {
-                if(ctrl is SWTextbox swc && !string.IsNullOrEmpty(swc.Text))
+                if(ctrl is SWTextbox && !string.IsNullOrEmpty(txt.Text))
                 {
-                    keyValuePairs.Add(swc.DatabaseName, swc.Text);
+                    keyValuePairs.Add(txt.DatabaseName, txt.Text);
                 }                                
             }
             return keyValuePairs;
@@ -92,17 +92,30 @@ namespace ManagementForms
             {
                 MessageBox.Show($"Error to search: {ex.Message}");
             }
+            searchParameters.Clear();
         }
 
         private void dgvData_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if(e.RowIndex >= 0)
             {
-                IdSelected = dgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
+                string idSelected = dgvData.Rows[e.RowIndex].Cells[0].Value.ToString();
 
-                //foreach(Form frm in ){
-
-
+                foreach (Form frm in Application.OpenForms)
+                {                        
+                    if (frm.Name == _formName)
+                    {
+                        foreach (Control ctrl in frm.Controls)
+                        {
+                            if ((ctrl is SWTextbox) && txt.ControlID == _controlId )
+                            {                                 
+                                //DataSet data = txt.SetId(idSelected);
+                                break;                                
+                            }
+                        }
+                        break;
+                    }                   
+                }               
                 this.Close();
             }
         }

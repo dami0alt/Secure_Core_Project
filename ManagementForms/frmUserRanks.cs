@@ -25,9 +25,10 @@ namespace ManagementForms
             dgtData.Columns["idUserRank"].Visible = false;
         }
 
-        private void frmUserRanks_Load(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-
+            frmScreenCS frmScreenCS = new frmScreenCS(_tableName);
+            frmScreenCS.Show();
         }
     }
 }
