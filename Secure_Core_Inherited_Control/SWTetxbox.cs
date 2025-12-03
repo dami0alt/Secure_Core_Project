@@ -16,7 +16,8 @@ namespace SecureCoreInheritedControl
     {
         Number,
         Text,
-        Code
+        Code,
+        Rgb
     }
 
     public class SWTextbox : TextBox
@@ -24,12 +25,11 @@ namespace SecureCoreInheritedControl
         private DataType _AllowedData = DataType.Text;
         private string _DatabaseName = "";
         private bool _NullSpace = true;
-        private Color _OriginalColor;
         private bool _IsValid = true;
         private bool _IsForeignKey = false;
 
 
-        Color notNullColor = Color.LightGray;
+        Color notNullColor = Color.FromArgb(168, 194, 204);
         Color defaultColor = Color.White;
 
         public DataType AllowedData
@@ -75,7 +75,6 @@ namespace SecureCoreInheritedControl
 
         public SWTextbox()
         {
-            //_OriginalColor = this.BackColor;
             InitializeComponent();
             this.Enter += SWTextbox_Enter;
             this.Leave += SWTextbox_Leave;
@@ -84,7 +83,14 @@ namespace SecureCoreInheritedControl
 
         private void SWTextbox_Leave(object sender, EventArgs e)
         {
-            this.BackColor = _OriginalColor;
+            if (!_NullSpace)
+            {
+                this.BackColor = notNullColor;
+            }
+            else
+            {
+                this.BackColor = defaultColor;
+            }
         }
 
         private void SWTextbox_Enter(object sender, EventArgs e)
@@ -116,7 +122,15 @@ namespace SecureCoreInheritedControl
 
             if (validation && AllowedData == DataType.Text && text.Length > 0)
             {
-                validation = Regex.IsMatch(text, @"^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$");
+                validation = Regex.IsMatch(text, @"^(?=.*[a-zA-Z])[a-zA-Z0-9\s\p{P}\p{S}]+$");
+            }
+
+            if (validation && AllowedData == DataType.Rgb && text.Length > 0)
+            {
+                string pattern = @"^([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]);" +
+            "([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5]);" +
+            "([1]?[0-9]?[0-9]|2[0-4][0-9]|25[0-5])$";
+                validation = Regex.IsMatch(text, pattern);
             }
 
             _IsValid = validation;
@@ -127,10 +141,9 @@ namespace SecureCoreInheritedControl
             }
             
         }
-        //BORRAR A FUTURO
-        public void SetDefaultData()
+        public void SetId(string id)
         {
-            this.Text = "1";
+            this.Text = id;
         }
 
         private void InitializeComponent()

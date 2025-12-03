@@ -154,25 +154,24 @@ namespace SWUserControls
         {
             try
             {
-                Boolean exist = false;
+                Boolean formLoaded = false;
                 LoadDll();
                 foreach (Form frm in Application.OpenForms)
                 {
                     if (frm.GetType() == types)
                     {
-                        exist = true;
+                        formLoaded = true;
                         frm.BringToFront();
                     }
                 }
-
-                if (!exist)
+                if (!formLoaded)
                 {
                     LoadFormByDll();
                 }
-            }
+            } 
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK);
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
             } 
         }
         //Eventos de diseño:...

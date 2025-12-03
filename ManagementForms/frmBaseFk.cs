@@ -15,6 +15,8 @@ namespace ManagementForms
     public partial class frmBasefk : Form
     {
         protected string _tableName;
+        protected List<string> _FkTableNames;
+
         BaseDeDades dbManager;
         Boolean _isNew = false;
         Boolean _creationMode = false;
@@ -23,15 +25,31 @@ namespace ManagementForms
             InitializeComponent();
         }
 
-        protected DataSet dts;
-  
+        protected DataSet ds;
+        private void GetTableData()
+        {
+            //Primero, obtenemos los datos de la tabla maestra
+            ds = dbManager.PortarTaula(_tableName);
+
+            //Cargamos DataTables a nuestro DataSet por cada elemento de nuestra lista
+            if(_FkTableNames.Count > 0)
+            {
+                string query = "";
+                foreach (var table in _FkTableNames)
+                {
+                    query = $"SELECT * FROM {table}";
+                    ds = dbManager.AfegirDataTable(query,ds);
+                }
+            }
+        }
+
         private void BindControls()
         {
             foreach (Control ctrl in this.Controls)
             {
                 if(ctrl is SWTextbox && ((SWTextbox)ctrl).DataBindings.Count == 0)
                 {
-                    ctrl.DataBindings.Add("Text", dts.Tables[0], ((SWTextbox)ctrl).DatabaseName);
+                    ctrl.DataBindings.Add("Text", ds.Tables[0], ((SWTextbox)ctrl).DatabaseName);
                     ctrl.Validated += new EventHandler(this.SWTextbox_Validated);
                 }
             }
@@ -65,21 +83,22 @@ namespace ManagementForms
                 UnbindControls();
             }
 
-            dbManager.Actualitzar(query, dts);
+            dbManager.Actualitzar(query, ds);
 
-            dts = dbManager.PortarTaula(_tableName);
+            ds = dbManager.PortarTaula(_tableName);
 
             timerInfo.Start();
             lblInfo.ForeColor = Color.LightGreen;
+            lblInfo.Visible = true;
             lblInfo.Text = "Registers Updated !!";
 
             BindControls();
-            dgtData.DataSource = dts.Tables[0];
+            dgtData.DataSource = ds.Tables[0];
         }
         protected virtual void NewRegister()
         {
             DataRow row; 
-            row = dts.Tables[0].NewRow();
+            row = ds.Tables[0].NewRow();
 
             foreach (Control ctrl in this.Controls)
             {
@@ -97,7 +116,7 @@ namespace ManagementForms
                         else
                         {
                             lblInfo.Visible = true;
-                            throw new ArgumentException($"The {name} is required, please check it out. ");
+                            throw new ArgumentException($"The required fields are empty, please verify...");
                         }
                     }
                     else
@@ -112,17 +131,18 @@ namespace ManagementForms
                     row[ctrl.Tag.ToString()] = ((ComboBox)ctrl).SelectedValue;
                 }
             }
-            dts.Tables[0].Rows.Add(row);     
+            ds.Tables[0].Rows.Add(row);     
         }
+    
         protected virtual void ConfigurateDataGridView()
         {
-            //foreach (DataGridViewColumn col in dgtData.Columns)
-            //{
-            //    if (col.Name.ToLower().Substring(0, 2) == "id")
-            //    {
-            //        col.Visible = false;
-            //    }
-            //}
+            foreach (DataGridViewColumn col in dgtData.Columns)
+            {
+                if (col.Name.ToLower().Substring(0, 2) == "id")
+                {
+                    col.Visible = false;
+                }
+            }
             //Setup 
             dgtData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
@@ -138,10 +158,11 @@ namespace ManagementForms
         {
             if (DesignMode) return;
             dbManager = new BaseDeDades();
-            dts = dbManager.PortarTaula(_tableName);
+
+            GetTableData();
 
             BindControls();
-            dgtData.DataSource = dts.Tables[0];
+            dgtData.DataSource = ds.Tables[0];
             ConfigurateDataGridView();
             lblTableName.Text = _tableName;
         }
@@ -180,6 +201,7 @@ namespace ManagementForms
             }catch(Exception ex)
             {
                 timerInfo.Start();
+                lblInfo.ForeColor = Color.LightSalmon;
                 lblInfo.Text = ex.Message;
             }
         }
