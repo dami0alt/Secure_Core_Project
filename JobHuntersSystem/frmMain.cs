@@ -59,6 +59,7 @@ namespace JobHuntersSystem
                         InitialImagePath = row["PicturePathMain"].ToString(),
                         HoverImagePath = row["PicturePathHover"].ToString(),
                         HoverBackColor = row["BackColorHover"].ToString(),
+                        HoverFontColor = row["FontColorHover"].ToString(),
                     });
                 }
             }
