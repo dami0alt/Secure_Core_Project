@@ -37,6 +37,10 @@ namespace JobHuntersSystem
         {
             InitializeComponent();
             dbManager = new BaseDeDades();
+
+            string timeFrame = DateTime.Now.ToString("HH:mm:ss");
+            lblTime.Text = timeFrame;
+            timerTime.Start();
         }
         DataTable dtUserOptions;
 
@@ -162,6 +166,12 @@ namespace JobHuntersSystem
         private void pctExtender_MouseLeave(object sender, EventArgs e)
         {
             pctExtender.BackColor = pnlTool.BackColor;
+        }
+
+        private void timerTime_Tick(object sender, EventArgs e)
+        {
+            string timeFrame = DateTime.Now.ToString("HH:mm:ss");
+            lblTime.Text = timeFrame;
         }
     }
 }

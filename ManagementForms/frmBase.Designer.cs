@@ -146,6 +146,6 @@ namespace ManagementForms
         private System.Windows.Forms.Button btnCreate;
         protected System.Windows.Forms.DataGridView dgtData;
         protected System.Windows.Forms.Label lblTableName;
-        private System.Windows.Forms.Button btnClose;
+        protected System.Windows.Forms.Button btnClose;
     }
 }

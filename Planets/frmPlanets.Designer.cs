@@ -61,8 +61,8 @@ namespace Planets
             // 
             // lblTableName
             // 
-            this.lblTableName.Location = new System.Drawing.Point(110, 9);
-            this.lblTableName.Size = new System.Drawing.Size(1019, 25);
+            this.lblTableName.Location = new System.Drawing.Point(358, 0);
+            this.lblTableName.Size = new System.Drawing.Size(484, 42);
             // 
             // SWtxtCodePlanet
             // 
@@ -402,7 +402,7 @@ namespace Planets
             // frmPlanets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
-            this.ClientSize = new System.Drawing.Size(1224, 729);
+            this.ClientSize = new System.Drawing.Size(1201, 729);
             this.Controls.Add(this.isPlanet);
             this.Controls.Add(this.SWtxtPortPlanet1);
             this.Controls.Add(this.label11);
