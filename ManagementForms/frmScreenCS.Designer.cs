@@ -30,20 +30,20 @@ namespace ManagementForms
         private void InitializeComponent()
         {
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pnlHeaderLine = new System.Windows.Forms.Panel();
+            this.pctGif2 = new System.Windows.Forms.PictureBox();
+            this.pctGif1 = new System.Windows.Forms.PictureBox();
             this.lblTableName = new System.Windows.Forms.Label();
             this.dgvData = new System.Windows.Forms.DataGridView();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.pctBackGround = new System.Windows.Forms.PictureBox();
             this.pnlFooter = new System.Windows.Forms.Panel();
-            this.pctGif1 = new System.Windows.Forms.PictureBox();
-            this.pctGif2 = new System.Windows.Forms.PictureBox();
-            this.pnlHeaderLine = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pctGif2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctGif1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBackGround)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctGif1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctGif2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlHeader
@@ -59,6 +59,42 @@ namespace ManagementForms
             this.pnlHeader.Name = "pnlHeader";
             this.pnlHeader.Size = new System.Drawing.Size(842, 51);
             this.pnlHeader.TabIndex = 4;
+            // 
+            // pnlHeaderLine
+            // 
+            this.pnlHeaderLine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlHeaderLine.BackColor = System.Drawing.Color.Silver;
+            this.pnlHeaderLine.Location = new System.Drawing.Point(280, 10);
+            this.pnlHeaderLine.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlHeaderLine.Name = "pnlHeaderLine";
+            this.pnlHeaderLine.Size = new System.Drawing.Size(274, 5);
+            this.pnlHeaderLine.TabIndex = 13;
+            // 
+            // pctGif2
+            // 
+            this.pctGif2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pctGif2.ImageLocation = "Multimedia/gifs/Darth_Vader2.gif";
+            this.pctGif2.Location = new System.Drawing.Point(717, -34);
+            this.pctGif2.Name = "pctGif2";
+            this.pctGif2.Size = new System.Drawing.Size(180, 106);
+            this.pctGif2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctGif2.TabIndex = 3;
+            this.pctGif2.TabStop = false;
+            // 
+            // pctGif1
+            // 
+            this.pctGif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pctGif1.ImageLocation = "Multimedia/gifs/Darth_Vader.gif";
+            this.pctGif1.Location = new System.Drawing.Point(-18, -25);
+            this.pctGif1.Name = "pctGif1";
+            this.pctGif1.Size = new System.Drawing.Size(93, 93);
+            this.pctGif1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pctGif1.TabIndex = 2;
+            this.pctGif1.TabStop = false;
             // 
             // lblTableName
             // 
@@ -88,27 +124,29 @@ namespace ManagementForms
             this.dgvData.RowHeadersWidth = 62;
             this.dgvData.RowTemplate.Height = 28;
             this.dgvData.Size = new System.Drawing.Size(780, 212);
-            this.dgvData.TabIndex = 5;
+            this.dgvData.TabIndex = 22;
             this.dgvData.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvData_CellDoubleClick);
             // 
             // btnSearch
             // 
+            this.btnSearch.ForeColor = System.Drawing.Color.Black;
             this.btnSearch.Location = new System.Drawing.Point(661, 298);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(70, 25);
-            this.btnSearch.TabIndex = 6;
+            this.btnSearch.TabIndex = 20;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // btnClose
             // 
+            this.btnClose.ForeColor = System.Drawing.Color.Black;
             this.btnClose.Location = new System.Drawing.Point(741, 298);
             this.btnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(70, 25);
-            this.btnClose.TabIndex = 7;
+            this.btnClose.TabIndex = 21;
             this.btnClose.Text = "Exit";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -134,42 +172,6 @@ namespace ManagementForms
             this.pnlFooter.Size = new System.Drawing.Size(842, 10);
             this.pnlFooter.TabIndex = 12;
             // 
-            // pctGif1
-            // 
-            this.pctGif1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctGif1.ImageLocation = "Multimedia/gifs/Darth_Vader.gif";
-            this.pctGif1.Location = new System.Drawing.Point(-18, -25);
-            this.pctGif1.Name = "pctGif1";
-            this.pctGif1.Size = new System.Drawing.Size(93, 93);
-            this.pctGif1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctGif1.TabIndex = 2;
-            this.pctGif1.TabStop = false;
-            // 
-            // pctGif2
-            // 
-            this.pctGif2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pctGif2.ImageLocation = "Multimedia/gifs/Darth_Vader2.gif";
-            this.pctGif2.Location = new System.Drawing.Point(717, -34);
-            this.pctGif2.Name = "pctGif2";
-            this.pctGif2.Size = new System.Drawing.Size(180, 106);
-            this.pctGif2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pctGif2.TabIndex = 3;
-            this.pctGif2.TabStop = false;
-            // 
-            // pnlHeaderLine
-            // 
-            this.pnlHeaderLine.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHeaderLine.BackColor = System.Drawing.Color.Silver;
-            this.pnlHeaderLine.Location = new System.Drawing.Point(280, 10);
-            this.pnlHeaderLine.Margin = new System.Windows.Forms.Padding(2);
-            this.pnlHeaderLine.Name = "pnlHeaderLine";
-            this.pnlHeaderLine.Size = new System.Drawing.Size(274, 5);
-            this.pnlHeaderLine.TabIndex = 13;
-            // 
             // frmScreenCS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,6 +185,7 @@ namespace ManagementForms
             this.Controls.Add(this.pnlHeader);
             this.Controls.Add(this.pctBackGround);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ForeColor = System.Drawing.Color.White;
             this.KeyPreview = true;
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmScreenCS";
@@ -191,10 +194,10 @@ namespace ManagementForms
             this.Load += new System.EventHandler(this.frmScreenCS_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.frmScreenCS_KeyDown);
             this.pnlHeader.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pctGif2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctGif1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pctBackGround)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctGif1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pctGif2)).EndInit();
             this.ResumeLayout(false);
 
         }

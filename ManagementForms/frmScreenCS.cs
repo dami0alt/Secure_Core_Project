@@ -25,10 +25,15 @@ namespace ManagementForms
         string cursorPath = "Multimedia/ani/Busy.ani";
         #endregion
 
-
+        public frmScreenCS() //Solución provisional debido a un bug con el diseñador.
+        {
+            InitializeComponent();
+            //if (DesignMode) return;
+        }
         public frmScreenCS(string tableName, string formName, string controlId)
         {
             InitializeComponent();
+            if (DesignMode) return;
             _tableName = tableName;
             _controlId = controlId;
             _formName = formName;
@@ -78,7 +83,7 @@ namespace ManagementForms
             dgvData.DefaultCellStyle.Font = new Font("Century Gothic", 9);
             dgvData.DefaultCellStyle.BackColor = Color.White;
             dgvData.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGray;
-
+            dgvData.ForeColor = Color.Black;
             dgvData.AllowUserToAddRows = false;
 
         }
@@ -92,7 +97,7 @@ namespace ManagementForms
 
             dgvData.DataSource = null;
             ConfigurateDataGridView();
-            lblTableName.Text = _tableName;
+            lblTableName.Text = _tableName+" Search";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
