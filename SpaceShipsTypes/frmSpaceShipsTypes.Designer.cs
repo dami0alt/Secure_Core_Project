@@ -43,8 +43,9 @@ namespace SpaceShipsTypes
             // 
             // lblTableName
             // 
-            this.lblTableName.Location = new System.Drawing.Point(251, 9);
-            this.lblTableName.Size = new System.Drawing.Size(1274, 34);
+            this.lblTableName.Location = new System.Drawing.Point(2, 7);
+            this.lblTableName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTableName.Size = new System.Drawing.Size(1194, 26);
             // 
             // SWtxtDescType
             // 
@@ -53,45 +54,41 @@ namespace SpaceShipsTypes
             this.SWtxtDescType.ControlID = null;
             this.SWtxtDescType.DatabaseName = "DescSpaceShipType";
             this.SWtxtDescType.IsForeignKey = false;
-            this.SWtxtDescType.Location = new System.Drawing.Point(316, 160);
-            this.SWtxtDescType.Margin = new System.Windows.Forms.Padding(4);
+            this.SWtxtDescType.Location = new System.Drawing.Point(221, 122);
             this.SWtxtDescType.Name = "SWtxtDescType";
             this.SWtxtDescType.NullSpace = true;
-            this.SWtxtDescType.Size = new System.Drawing.Size(243, 28);
+            this.SWtxtDescType.Size = new System.Drawing.Size(171, 21);
             this.SWtxtDescType.TabIndex = 30;
             // 
             // lblDescType
             // 
             this.lblDescType.AutoSize = true;
             this.lblDescType.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescType.Location = new System.Drawing.Point(109, 160);
-            this.lblDescType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescType.Location = new System.Drawing.Point(76, 122);
             this.lblDescType.Name = "lblDescType";
-            this.lblDescType.Size = new System.Drawing.Size(197, 27);
+            this.lblDescType.Size = new System.Drawing.Size(130, 18);
             this.lblDescType.TabIndex = 45;
             this.lblDescType.Text = "Type Description";
             // 
             // SWtxtTypeCode
             // 
-            this.SWtxtTypeCode.AllowedData = SecureCoreInheritedControl.DataType.Code;
+            this.SWtxtTypeCode.AllowedData = SecureCoreInheritedControl.DataType.Text;
             this.SWtxtTypeCode.ControlID = null;
             this.SWtxtTypeCode.DatabaseName = "CodeSpaceShipType";
             this.SWtxtTypeCode.IsForeignKey = false;
-            this.SWtxtTypeCode.Location = new System.Drawing.Point(316, 102);
-            this.SWtxtTypeCode.Margin = new System.Windows.Forms.Padding(4);
+            this.SWtxtTypeCode.Location = new System.Drawing.Point(221, 78);
             this.SWtxtTypeCode.Name = "SWtxtTypeCode";
             this.SWtxtTypeCode.NullSpace = true;
-            this.SWtxtTypeCode.Size = new System.Drawing.Size(243, 28);
+            this.SWtxtTypeCode.Size = new System.Drawing.Size(171, 21);
             this.SWtxtTypeCode.TabIndex = 29;
             // 
             // lblSpaceShipTypeCode
             // 
             this.lblSpaceShipTypeCode.AutoSize = true;
             this.lblSpaceShipTypeCode.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpaceShipTypeCode.Location = new System.Drawing.Point(43, 102);
-            this.lblSpaceShipTypeCode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSpaceShipTypeCode.Location = new System.Drawing.Point(30, 78);
             this.lblSpaceShipTypeCode.Name = "lblSpaceShipTypeCode";
-            this.lblSpaceShipTypeCode.Size = new System.Drawing.Size(265, 27);
+            this.lblSpaceShipTypeCode.Size = new System.Drawing.Size(176, 18);
             this.lblSpaceShipTypeCode.TabIndex = 43;
             this.lblSpaceShipTypeCode.Text = "Space Ship Type Code";
             // 
@@ -99,10 +96,9 @@ namespace SpaceShipsTypes
             // 
             this.lblCodeCategory.AutoSize = true;
             this.lblCodeCategory.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeCategory.Location = new System.Drawing.Point(183, 280);
-            this.lblCodeCategory.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodeCategory.Location = new System.Drawing.Point(128, 213);
             this.lblCodeCategory.Name = "lblCodeCategory";
-            this.lblCodeCategory.Size = new System.Drawing.Size(117, 27);
+            this.lblCodeCategory.Size = new System.Drawing.Size(78, 18);
             this.lblCodeCategory.TabIndex = 40;
             this.lblCodeCategory.Text = "Category";
             // 
@@ -114,38 +110,36 @@ namespace SpaceShipsTypes
             this.SWtxtSpaceShipCategories.DatabaseName = "idSpaceShipCategory";
             this.SWtxtSpaceShipCategories.Enabled = false;
             this.SWtxtSpaceShipCategories.IsForeignKey = true;
-            this.SWtxtSpaceShipCategories.Location = new System.Drawing.Point(799, 280);
-            this.SWtxtSpaceShipCategories.Margin = new System.Windows.Forms.Padding(4);
+            this.SWtxtSpaceShipCategories.Location = new System.Drawing.Point(559, 213);
             this.SWtxtSpaceShipCategories.Name = "SWtxtSpaceShipCategories";
             this.SWtxtSpaceShipCategories.NullSpace = false;
-            this.SWtxtSpaceShipCategories.Size = new System.Drawing.Size(84, 28);
+            this.SWtxtSpaceShipCategories.Size = new System.Drawing.Size(60, 21);
             this.SWtxtSpaceShipCategories.TabIndex = 34;
             this.SWtxtSpaceShipCategories.TabStop = false;
             // 
             // SWcdCodeCategory
             // 
-            this.SWcdCodeCategory.ClasseCS = "ManagementForms.dll";
-            this.SWcdCodeCategory.ControlID = "SWtxtSpaceShipCategories";
-            this.SWcdCodeCategory.FormCS = "ManagementForms.frmUsers";
-            this.SWcdCodeCategory.Location = new System.Drawing.Point(304, 245);
-            this.SWcdCodeCategory.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.SWcdCodeCategory.ClasseCS = "SpaceShipCategories.dll";
+            this.SWcdCodeCategory.ControlID = "SWcdCodeCategoryId";
+            this.SWcdCodeCategory.FormCS = "SpaceShipCategories.frmSpaceShipCategoriesScreenCS";
+            this.SWcdCodeCategory.Location = new System.Drawing.Point(213, 187);
+            this.SWcdCodeCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdCodeCategory.Name = "SWcdCodeCategory";
             this.SWcdCodeCategory.NomCodi = "CodeSpaceShipCategory";
             this.SWcdCodeCategory.NomDesc = "DescSpaceShipCategory";
             this.SWcdCodeCategory.NomId = "idSpaceShipCategory";
             this.SWcdCodeCategory.NomTaula = "SpaceShipCategories";
             this.SWcdCodeCategory.NullSpace = false;
-            this.SWcdCodeCategory.Size = new System.Drawing.Size(486, 97);
+            this.SWcdCodeCategory.Size = new System.Drawing.Size(340, 74);
             this.SWcdCodeCategory.TabIndex = 33;
             // 
             // lblCodeFiliation
             // 
             this.lblCodeFiliation.AutoSize = true;
             this.lblCodeFiliation.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCodeFiliation.Location = new System.Drawing.Point(203, 218);
-            this.lblCodeFiliation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodeFiliation.Location = new System.Drawing.Point(142, 166);
             this.lblCodeFiliation.Name = "lblCodeFiliation";
-            this.lblCodeFiliation.Size = new System.Drawing.Size(98, 27);
+            this.lblCodeFiliation.Size = new System.Drawing.Size(64, 18);
             this.lblCodeFiliation.TabIndex = 36;
             this.lblCodeFiliation.Text = "Filiation";
             // 
@@ -156,35 +150,34 @@ namespace SpaceShipsTypes
             this.SWtxtidFiliation.ControlID = "SWcdFiliationCode";
             this.SWtxtidFiliation.DatabaseName = "idFiliation";
             this.SWtxtidFiliation.IsForeignKey = true;
-            this.SWtxtidFiliation.Location = new System.Drawing.Point(799, 218);
-            this.SWtxtidFiliation.Margin = new System.Windows.Forms.Padding(4);
+            this.SWtxtidFiliation.Location = new System.Drawing.Point(559, 166);
             this.SWtxtidFiliation.Name = "SWtxtidFiliation";
             this.SWtxtidFiliation.NullSpace = false;
             this.SWtxtidFiliation.ShortcutsEnabled = false;
-            this.SWtxtidFiliation.Size = new System.Drawing.Size(84, 28);
+            this.SWtxtidFiliation.Size = new System.Drawing.Size(60, 21);
             this.SWtxtidFiliation.TabIndex = 32;
             this.SWtxtidFiliation.TabStop = false;
             // 
             // SWcdFiliationCode
             // 
-            this.SWcdFiliationCode.ClasseCS = "ManagementForms.dll";
+            this.SWcdFiliationCode.ClasseCS = "Filiations.dll";
             this.SWcdFiliationCode.ControlID = "SWtxtidFiliation";
-            this.SWcdFiliationCode.FormCS = "ManagementForms.frmScreenCS";
-            this.SWcdFiliationCode.Location = new System.Drawing.Point(306, 184);
-            this.SWcdFiliationCode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.SWcdFiliationCode.FormCS = "Filiations.frmFiliationsScreenCS";
+            this.SWcdFiliationCode.Location = new System.Drawing.Point(214, 140);
+            this.SWcdFiliationCode.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdFiliationCode.Name = "SWcdFiliationCode";
             this.SWcdFiliationCode.NomCodi = "CodeFiliation";
             this.SWcdFiliationCode.NomDesc = "DescFiliations";
             this.SWcdFiliationCode.NomId = "idFiliation";
             this.SWcdFiliationCode.NomTaula = "Filiations";
             this.SWcdFiliationCode.NullSpace = false;
-            this.SWcdFiliationCode.Size = new System.Drawing.Size(484, 79);
+            this.SWcdFiliationCode.Size = new System.Drawing.Size(339, 60);
             this.SWcdFiliationCode.TabIndex = 31;
             // 
             // frmSpaceShipsTypes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
-            this.ClientSize = new System.Drawing.Size(1716, 957);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.ClientSize = new System.Drawing.Size(1201, 729);
             this.Controls.Add(this.SWtxtDescType);
             this.Controls.Add(this.lblDescType);
             this.Controls.Add(this.SWtxtTypeCode);
@@ -195,8 +188,7 @@ namespace SpaceShipsTypes
             this.Controls.Add(this.lblCodeFiliation);
             this.Controls.Add(this.SWtxtidFiliation);
             this.Controls.Add(this.SWcdFiliationCode);
-            this.Margin = new System.Windows.Forms.Padding(3);
-            this.MinimumSize = new System.Drawing.Size(1729, 990);
+            this.MinimumSize = new System.Drawing.Size(1198, 739);
             this.Name = "frmSpaceShipsTypes";
             this.Controls.SetChildIndex(this.SWcdFiliationCode, 0);
             this.Controls.SetChildIndex(this.SWtxtidFiliation, 0);
