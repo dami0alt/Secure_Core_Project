@@ -30,21 +30,25 @@ namespace JobHuntersSystem
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSplash));
+            this.TimerSplash = new System.Windows.Forms.Timer(this.components);
             this.pgbSplash = new System.Windows.Forms.ProgressBar();
             this.lblProgress = new System.Windows.Forms.Label();
-            this.TimerSplash = new System.Windows.Forms.Timer(this.components);
-            this.lblOrg = new System.Windows.Forms.Label();
             this.lblClan = new System.Windows.Forms.Label();
-            this.btnSkip = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // TimerSplash
+            // 
+            this.TimerSplash.Enabled = true;
+            this.TimerSplash.Tick += new System.EventHandler(this.TimerSplash_Tick);
             // 
             // pgbSplash
             // 
-            this.pgbSplash.Location = new System.Drawing.Point(65, 192);
-            this.pgbSplash.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pgbSplash.Location = new System.Drawing.Point(78, 211);
+            this.pgbSplash.Margin = new System.Windows.Forms.Padding(2);
             this.pgbSplash.Maximum = 101;
             this.pgbSplash.Name = "pgbSplash";
-            this.pgbSplash.Size = new System.Drawing.Size(405, 27);
+            this.pgbSplash.Size = new System.Drawing.Size(615, 27);
             this.pgbSplash.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.pgbSplash.TabIndex = 0;
             // 
@@ -52,66 +56,39 @@ namespace JobHuntersSystem
             // 
             this.lblProgress.AutoSize = true;
             this.lblProgress.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblProgress.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
-            this.lblProgress.Location = new System.Drawing.Point(250, 231);
+            this.lblProgress.ForeColor = System.Drawing.Color.White;
+            this.lblProgress.Location = new System.Drawing.Point(359, 251);
             this.lblProgress.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(32, 19);
             this.lblProgress.TabIndex = 1;
             this.lblProgress.Text = "0%";
             // 
-            // TimerSplash
-            // 
-            this.TimerSplash.Enabled = true;
-            this.TimerSplash.Tick += new System.EventHandler(this.TimerSplash_Tick);
-            // 
-            // lblOrg
-            // 
-            this.lblOrg.AutoSize = true;
-            this.lblOrg.Font = new System.Drawing.Font("Century Gothic", 28F, System.Drawing.FontStyle.Bold);
-            this.lblOrg.Location = new System.Drawing.Point(64, 76);
-            this.lblOrg.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblOrg.Name = "lblOrg";
-            this.lblOrg.Size = new System.Drawing.Size(398, 44);
-            this.lblOrg.TabIndex = 2;
-            this.lblOrg.Text = "SdS Software Factory";
-            // 
             // lblClan
             // 
             this.lblClan.AutoSize = true;
-            this.lblClan.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.lblClan.Location = new System.Drawing.Point(198, 157);
+            this.lblClan.Font = new System.Drawing.Font("Century Gothic", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblClan.ForeColor = System.Drawing.Color.White;
+            this.lblClan.Location = new System.Drawing.Point(195, 88);
             this.lblClan.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblClan.Name = "lblClan";
-            this.lblClan.Size = new System.Drawing.Size(137, 26);
+            this.lblClan.Size = new System.Drawing.Size(393, 77);
             this.lblClan.TabIndex = 3;
             this.lblClan.Text = "Job Hunters";
-            // 
-            // btnSkip
-            // 
-            this.btnSkip.Location = new System.Drawing.Point(71, 28);
-            this.btnSkip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.btnSkip.Name = "btnSkip";
-            this.btnSkip.Size = new System.Drawing.Size(197, 79);
-            this.btnSkip.TabIndex = 4;
-            this.btnSkip.Text = "skip";
-            this.btnSkip.UseVisualStyleBackColor = true;
-            this.btnSkip.Click += new System.EventHandler(this.btnSkip_Click);
             // 
             // frmSplash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(67)))), ((int)(((byte)(79)))), ((int)(((byte)(56)))));
-            this.ClientSize = new System.Drawing.Size(533, 292);
-            this.Controls.Add(this.btnSkip);
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.ClientSize = new System.Drawing.Size(781, 363);
             this.Controls.Add(this.lblClan);
-            this.Controls.Add(this.lblOrg);
             this.Controls.Add(this.lblProgress);
             this.Controls.Add(this.pgbSplash);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmSplash";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmSplash";
@@ -122,12 +99,9 @@ namespace JobHuntersSystem
         }
 
         #endregion
-
+        private System.Windows.Forms.Timer TimerSplash;
         private System.Windows.Forms.ProgressBar pgbSplash;
         private System.Windows.Forms.Label lblProgress;
-        private System.Windows.Forms.Timer TimerSplash;
-        private System.Windows.Forms.Label lblOrg;
         private System.Windows.Forms.Label lblClan;
-        private System.Windows.Forms.Button btnSkip;
     }
 }

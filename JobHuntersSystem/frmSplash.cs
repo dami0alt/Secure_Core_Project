@@ -32,6 +32,7 @@ namespace JobHuntersSystem
                 this.Close();
             }
         }
+
         private void frmSplash_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Alt && e.KeyCode == Keys.F4)
@@ -40,31 +41,5 @@ namespace JobHuntersSystem
             }
         } //para no cerrar con alt+f4
 
-
-        //añadido
-        private void btnSkip_Click(object sender, EventArgs e)
-        {
-            User mainUser = new User
-            {
-                idUser = 3017,
-                CodeUser = "DAM",
-                UserName = "Damian Altamirano",
-                Login = "Damian",
-                Photo = "Multimedia/png/Clon.png",
-                AccesLevel = 100,
-                DescRank = "General",
-                DescCategory = "Jedi Master"
-            };
-
-            CurrentUser.MainUser = mainUser;
-
-            SkipClicked = true;
-            frmMain frmMain = new frmMain();
-            frmMain.Show();
-            TimerSplash.Stop();
-
-            this.Close();
-
-        }
     }
 }
