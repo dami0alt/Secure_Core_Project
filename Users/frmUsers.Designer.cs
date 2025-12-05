@@ -61,9 +61,9 @@ namespace Users
             // 
             // SWcdUserCategory
             // 
-            this.SWcdUserCategory.ClasseCS = "ManagementForms.dll";
+            this.SWcdUserCategory.ClasseCS = "UserCategories.dll";
             this.SWcdUserCategory.ControlID = "SWtxtUserCategoryId";
-            this.SWcdUserCategory.FormCS = "ManagementForms.frmScreenCS";
+            this.SWcdUserCategory.FormCS = "UserCategories.frmUserCategoriesScreenCS";
             this.SWcdUserCategory.Location = new System.Drawing.Point(168, 186);
             this.SWcdUserCategory.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.SWcdUserCategory.Name = "SWcdUserCategory";

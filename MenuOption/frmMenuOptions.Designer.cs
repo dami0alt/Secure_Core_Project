@@ -180,7 +180,7 @@ namespace MenuOption
             // SWtxtFontColorMain
             // 
             this.SWtxtFontColorMain.AllowedData = SecureCoreInheritedControl.DataType.Rgb;
-            this.SWtxtFontColorMain.ControlID = null;
+            this.SWtxtFontColorMain.ControlID = "SWcpFontColor";
             this.SWtxtFontColorMain.DatabaseName = "FontColorMain";
             this.SWtxtFontColorMain.IsForeignKey = false;
             this.SWtxtFontColorMain.Location = new System.Drawing.Point(982, 67);

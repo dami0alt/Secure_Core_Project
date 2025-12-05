@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using ManagementForms;
 using ComponentesDeAcceso;
 using IdentityUser;
+using System.Runtime.InteropServices;
+
 namespace JobHuntersSystem
 {
     public partial class frmMain : Form
@@ -25,11 +27,20 @@ namespace JobHuntersSystem
 
         string logoPath = AppDomain.CurrentDomain.BaseDirectory + "Multimedia/png/Banner.png";
         bool PanelMinimized = false;
+        #region cursor
+        [DllImport("user32.dll")]
+        public static extern IntPtr LoadCursorFromFile(string lpFileName);
+        string cursorPath = "Multimedia/ani/Working.ani";
+        #endregion
 
         public frmMain()
         {
             InitializeComponent();
             dbManager = new BaseDeDades();
+
+            string timeFrame = DateTime.Now.ToString("HH:mm:ss");
+            lblTime.Text = timeFrame;
+            timerTime.Start();
         }
         DataTable dtUserOptions;
 
@@ -52,8 +63,22 @@ namespace JobHuntersSystem
                         InitialImagePath = row["PicturePathMain"].ToString(),
                         HoverImagePath = row["PicturePathHover"].ToString(),
                         HoverBackColor = row["BackColorHover"].ToString(),
+                        HoverFontColor = row["FontColorHover"].ToString(),
                     });
                 }
+            }
+        }
+        private void LoadAniCursor()
+        {
+            cursorPath = AppDomain.CurrentDomain.BaseDirectory + cursorPath;
+            IntPtr hCursor = LoadCursorFromFile(cursorPath);
+            if (hCursor != IntPtr.Zero)
+            {
+                this.Cursor = new Cursor(hCursor);
+            }
+            else
+            {
+                MessageBox.Show("The cursor couldn't be loaded", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -64,6 +89,7 @@ namespace JobHuntersSystem
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            LoadAniCursor();
             LoadUserOptions();
 
             lblUserName.Text = _UserName;
@@ -82,6 +108,31 @@ namespace JobHuntersSystem
             if(CurrentUser.MainUser.AccesLevel == 100)
             {
                 pctSecretItem.ImageLocation = AppDomain.CurrentDomain.BaseDirectory + "Multimedia/png/crown.png";
+            }
+
+            if (_AccessLevelUser <= 10)
+            {
+                lblHonor.Text = "★";
+            }
+            else if(_AccessLevelUser <= 20)
+            {
+                lblHonor.Text = "★ ★";
+            }
+            else if (_AccessLevelUser <= 40)
+            {
+                lblHonor.Text = "★ ★ ★";
+            }
+            else if (_AccessLevelUser <= 60)
+            {
+                lblHonor.Text = "★ ★ ★ ★";
+            }
+            else if (_AccessLevelUser <= 80)
+            {
+                lblHonor.Text = "★ ★ ★ ★ ★";
+            }
+            else
+            {
+                lblHonor.Text = "★ ★ ★ ★ ★ ♚";
             }
             //speech = new SpeechManager(this);
         }
@@ -115,6 +166,12 @@ namespace JobHuntersSystem
         private void pctExtender_MouseLeave(object sender, EventArgs e)
         {
             pctExtender.BackColor = pnlTool.BackColor;
+        }
+
+        private void timerTime_Tick(object sender, EventArgs e)
+        {
+            string timeFrame = DateTime.Now.ToString("HH:mm:ss");
+            lblTime.Text = timeFrame;
         }
     }
 }

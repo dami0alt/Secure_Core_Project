@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -50,18 +51,6 @@
     <Compile Include="frmScreenCS.Designer.cs">
       <DependentUpon>frmScreenCS.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUserRanks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUserRanks.Designer.cs">
-      <DependentUpon>frmUserRanks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmUsers.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsers.Designer.cs">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmBaseFk.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,12 +63,6 @@
     <Compile Include="frmBase.Designer.cs">
       <DependentUpon>frmBase.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmUsersCategories.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmUsersCategories.Designer.cs">
-      <DependentUpon>frmUsersCategories.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -91,15 +74,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmScreenCS.resx">
       <DependentUpon>frmScreenCS.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUserRanks.resx">
-      <DependentUpon>frmUserRanks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUsers.resx">
-      <DependentUpon>frmUsers.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmUsersCategories.resx">
-      <DependentUpon>frmUsersCategories.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

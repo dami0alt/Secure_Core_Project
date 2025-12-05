@@ -29,8 +29,10 @@ namespace JobHuntersSystem
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pnlHeader = new System.Windows.Forms.Panel();
-            this.lblSystemName = new System.Windows.Forms.Label();
+            this.lblHonor = new System.Windows.Forms.Label();
+            this.lblTime = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.pnlOptions = new System.Windows.Forms.Panel();
             this.flpOptions = new System.Windows.Forms.FlowLayoutPanel();
@@ -45,6 +47,8 @@ namespace JobHuntersSystem
             this.pctSecretItem = new System.Windows.Forms.PictureBox();
             this.pnlRectangleLeft = new System.Windows.Forms.Panel();
             this.pnlMain = new System.Windows.Forms.Panel();
+            this.timerTime = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pnlHeader.SuspendLayout();
             this.pnlOptions.SuspendLayout();
             this.pnlTool.SuspendLayout();
@@ -53,12 +57,14 @@ namespace JobHuntersSystem
             ((System.ComponentModel.ISupportInitialize)(this.pctProfileImage)).BeginInit();
             this.pnlUserInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pctSecretItem)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.pnlHeader.Controls.Add(this.lblSystemName);
+            this.pnlHeader.Controls.Add(this.panel1);
+            this.pnlHeader.Controls.Add(this.lblHonor);
             this.pnlHeader.Controls.Add(this.btnClose);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlHeader.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
@@ -67,24 +73,35 @@ namespace JobHuntersSystem
             this.pnlHeader.Size = new System.Drawing.Size(1440, 29);
             this.pnlHeader.TabIndex = 0;
             // 
-            // lblSystemName
+            // lblHonor
             // 
-            this.lblSystemName.AutoSize = true;
-            this.lblSystemName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(164)))), ((int)(((byte)(69)))));
-            this.lblSystemName.Location = new System.Drawing.Point(695, 5);
-            this.lblSystemName.Name = "lblSystemName";
-            this.lblSystemName.Size = new System.Drawing.Size(50, 19);
-            this.lblSystemName.TabIndex = 5;
-            this.lblSystemName.Text = "Home";
+            this.lblHonor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblHonor.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHonor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(171)))), ((int)(((byte)(82)))));
+            this.lblHonor.Location = new System.Drawing.Point(4, -3);
+            this.lblHonor.Name = "lblHonor";
+            this.lblHonor.Size = new System.Drawing.Size(255, 35);
+            this.lblHonor.TabIndex = 6;
+            // 
+            // lblTime
+            // 
+            this.lblTime.Font = new System.Drawing.Font("Britannic Bold", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTime.ForeColor = System.Drawing.Color.White;
+            this.lblTime.Location = new System.Drawing.Point(20, 2);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(84, 25);
+            this.lblTime.TabIndex = 5;
+            this.lblTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btnClose.BackColor = System.Drawing.Color.Red;
             this.btnClose.ForeColor = System.Drawing.Color.Black;
-            this.btnClose.Location = new System.Drawing.Point(659, 0);
+            this.btnClose.Location = new System.Drawing.Point(1408, 1);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(30, 29);
+            this.btnClose.Size = new System.Drawing.Size(30, 26);
             this.btnClose.TabIndex = 0;
             this.btnClose.Text = "X";
             this.btnClose.UseVisualStyleBackColor = false;
@@ -153,7 +170,7 @@ namespace JobHuntersSystem
             // 
             // pnlRectangleTop
             // 
-            this.pnlRectangleTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(101)))), ((int)(((byte)(52)))), ((int)(((byte)(52)))));
+            this.pnlRectangleTop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(47)))), ((int)(((byte)(47)))));
             this.pnlRectangleTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlRectangleTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(143)))), ((int)(((byte)(82)))));
             this.pnlRectangleTop.Location = new System.Drawing.Point(236, 110);
@@ -242,6 +259,20 @@ namespace JobHuntersSystem
             this.pnlMain.Size = new System.Drawing.Size(1193, 761);
             this.pnlMain.TabIndex = 7;
             // 
+            // timerTime
+            // 
+            this.timerTime.Interval = 1000;
+            this.timerTime.Tick += new System.EventHandler(this.timerTime_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(50)))), ((int)(((byte)(48)))));
+            this.panel1.Controls.Add(this.lblTime);
+            this.panel1.Location = new System.Drawing.Point(660, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(120, 32);
+            this.panel1.TabIndex = 7;
+            // 
             // frmMain
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -261,7 +292,6 @@ namespace JobHuntersSystem
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.pnlHeader.ResumeLayout(false);
-            this.pnlHeader.PerformLayout();
             this.pnlOptions.ResumeLayout(false);
             this.pnlTool.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctLogo)).EndInit();
@@ -269,6 +299,7 @@ namespace JobHuntersSystem
             ((System.ComponentModel.ISupportInitialize)(this.pctProfileImage)).EndInit();
             this.pnlUserInformation.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pctSecretItem)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -287,9 +318,12 @@ namespace JobHuntersSystem
         private System.Windows.Forms.PictureBox pctExtender;
         private System.Windows.Forms.Panel pnlRectangleLeft;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Label lblSystemName;
+        private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Panel pnlMain;
         private System.Windows.Forms.PictureBox pctLogo;
         private System.Windows.Forms.PictureBox pctSecretItem;
+        private System.Windows.Forms.Label lblHonor;
+        private System.Windows.Forms.Timer timerTime;
+        private System.Windows.Forms.Panel panel1;
     }
 }
