@@ -120,14 +120,13 @@ namespace ComponentesDeAcceso
             adapter = new SqlDataAdapter(consultaSql, cnn);
 
             cnn.Open();
-            DataTable newTable = new DataTable();
-            adapter.Fill(newTable);  
+            DataSet newdataset = new DataSet();
+            adapter.Fill(dataSet);
             cnn.Close();
 
-            dataSet.Tables.Add(newTable); 
+            dataSet.Tables[0].Rows.Add(newdataset.Tables[0]);
 
             return dataSet;
-
         }
 
         public void Executa(string querySQL)

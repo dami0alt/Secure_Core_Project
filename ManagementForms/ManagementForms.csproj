@@ -44,11 +44,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmScreenCS.cs">
+    <Compile Include="frmSpaceShipCategories.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmScreenCS.Designer.cs">
-      <DependentUpon>frmScreenCS.cs</DependentUpon>
+    <Compile Include="frmSpaceShipCategories.Designer.cs">
+      <DependentUpon>frmSpaceShipCategories.cs</DependentUpon>
     </Compile>
     <Compile Include="frmUserRanks.cs">
       <SubType>Form</SubType>
@@ -61,12 +61,6 @@
     </Compile>
     <Compile Include="frmUsers.Designer.cs">
       <DependentUpon>frmUsers.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmBaseFk.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmBaseFk.Designer.cs">
-      <DependentUpon>frmBaseFk.cs</DependentUpon>
     </Compile>
     <Compile Include="frmBase.cs">
       <SubType>Form</SubType>
@@ -83,14 +77,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="frmBaseFk.resx">
-      <DependentUpon>frmBaseFk.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmBase.resx">
       <DependentUpon>frmBase.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmScreenCS.resx">
-      <DependentUpon>frmScreenCS.cs</DependentUpon>
+    <EmbeddedResource Include="frmSpaceShipCategories.resx">
+      <DependentUpon>frmSpaceShipCategories.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserRanks.resx">
       <DependentUpon>frmUserRanks.cs</DependentUpon>
@@ -110,10 +101,6 @@
     <ProjectReference Include="..\Secure_Core_Inherited_Control\SWInheritedControl.csproj">
       <Project>{03d30974-503e-4351-8f6b-6678abc18454}</Project>
       <Name>SWInheritedControl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SWLauchForm\SWUserControls.csproj">
-      <Project>{3D4AAD84-4203-4ACD-9C84-4021BAE48781}</Project>
-      <Name>SWUserControls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

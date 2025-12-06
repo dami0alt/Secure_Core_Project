@@ -31,7 +31,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,51 +43,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="SWImageSelector.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SWImageSelector.Designer.cs">
-      <DependentUpon>SWImageSelector.cs</DependentUpon>
-    </Compile>
     <Compile Include="SWLauchForm.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="SWLauchForm.Designer.cs">
       <DependentUpon>SWLauchForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SWCodi.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="SWCodi.Designer.cs">
-      <DependentUpon>SWCodi.cs</DependentUpon>
-    </Compile>
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SWCodi.resx">
-      <DependentUpon>SWCodi.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SWImageSelector.resx">
-      <DependentUpon>SWImageSelector.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SWLauchForm.resx">
       <DependentUpon>SWLauchForm.cs</DependentUpon>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ComponentesDeAcceso\ComponentesDeAcceso.csproj">
-      <Project>{6d09f3be-9853-4b5b-9234-6d9120321a2f}</Project>
-      <Name>ComponentesDeAcceso</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

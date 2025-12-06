@@ -152,27 +152,20 @@ namespace SWUserControls
         //Evento Click: Cuando se haga click sobre cualquier parte del control, este abrira un frm mediante "Reflection"
         private void Control_Click(object sender, EventArgs e)
         {
-            try
+            Boolean exist = false;
+            LoadDll();
+            foreach (Form frm in Application.OpenForms)
             {
-                Boolean formLoaded = false;
-                LoadDll();
-                foreach (Form frm in Application.OpenForms)
+                if (frm.GetType() == types)
                 {
-                    if (frm.GetType() == types)
-                    {
-                        formLoaded = true;
-                        frm.BringToFront();
-                    }
+                    exist = true;
+                    frm.BringToFront();
                 }
-                if (!formLoaded)
-                {
-                    LoadFormByDll();
-                }
-            } 
-            catch (Exception ex)
+            }
+            if (!exist)
             {
-                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK,MessageBoxIcon.Error);
-            } 
+                LoadFormByDll();
+            }
         }
         //Eventos de diseño:...
         private void Control_MouseEnter(object sender, EventArgs e)
